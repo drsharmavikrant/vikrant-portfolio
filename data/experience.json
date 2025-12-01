@@ -1,0 +1,27 @@
+{
+  "positions": [
+    {
+      "role": "Assistant Professor – Computer Science & Engineering",
+      "institution": "Graphic Era Hill University, Dehradun",
+      "duration": "23 Aug 2021 – Present (4+ years)",
+      "description": "Teaching UG and PG courses, guiding Ph.D. scholars (1 awarded, 2 under supervision), and conducting research in WSN, machine learning and IoT. Convener for AutoCom and CyberCom conference series."
+    },
+    {
+      "role": "Assistant Professor – Computer Science & Engineering",
+      "institution": "Lovely Professional University, Punjab",
+      "duration": "20 Jul 2018 – 31 Jul 2021 (3 years)",
+      "description": "Taught core computer science subjects and mentored student projects related to machine learning, IoT and sensor networks."
+    }
+  ],
+  "courses": [
+    "Design and Analysis of Algorithms",
+    "Automata Theory",
+    "Computer Graphics",
+    "DevOps"
+  ],
+  "mentorship": [
+    "Guidance of Ph.D. scholars – 1 awarded and 2 under supervision.",
+    "NPTEL Python Certification (8 weeks) and multiple technical trainings completed.",
+    "Guided industrial training in IT, J2EE and software development for students."
+  ]
+}

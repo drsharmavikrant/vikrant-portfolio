@@ -1,0 +1,39 @@
+{
+  "granted": [
+    {
+      "title": "A Centrifugal Cannon based Sprinkler (CSS) System mounted on deployment helicopter and methods thereof",
+      "details": "Patent No. 425078, Application No. 20181101004 A, Utility, 6 Apr 2018."
+    },
+    {
+      "title": "Splash Protection System for Camera",
+      "details": "Design Patent No. 350640001."
+    },
+    {
+      "title": "Camera Lens Protection Kit",
+      "details": "Patent No. 451983, Application No. 202211009261, Utility, 15 Sept 2023."
+    },
+    {
+      "title": "A multi-node system and a method for big data analytics",
+      "details": "Patent No. 462171, Application No. 202131000115, Utility, 26 Oct 2023."
+    }
+  ],
+  "published": [
+    "Glider assisted system for precise and efficient deployment of sensor nodes in wireless sensor networks.",
+    "Multi-disease classifier and localizer for chest X-ray.",
+    "Distributed platform-based model for identification and classification of body part from X-ray.",
+    "An air quality improvement system using air conditioners.",
+    "A system for water management and quality assurance.",
+    "A system and method based on incremental learning-based cascaded model for medical imaging.",
+    "Air shield-based camera lens guard for dirt protection.",
+    "Star-brain: a brain game.",
+    "Manual espresso brewer.",
+    "Lung infection identification using heatmap.",
+    "Leveraging IoT, automating homes from mobile devices and gesture.",
+    "Active rear view mirror cleaner.",
+    "Proximity based attendance manager.",
+    "Adaptive tire pressure control system for enhanced efficiency and safety.",
+    "Armrest mounted vehicle controller (AMVC).",
+    "Inverted conical glider for precise placement of payloads on ground.",
+    "Network attack classification using heat map and method thereof."
+  ]
+}

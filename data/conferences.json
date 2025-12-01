@@ -1,0 +1,49 @@
+{
+  "organized": [
+    {
+      "title": "3rd International Conference on Automation & Computation (AutoCom-25)",
+      "details": "SERB Sponsored, IEEE Xplore, 2025."
+    },
+    {
+      "title": "1st International Conference on Cybernation & Computation (CyberCom-24)",
+      "details": "DRDO Sponsored, IEEE Xplore, 2024."
+    },
+    {
+      "title": "2nd International Conference on Automation & Computation (AutoCom-24)",
+      "details": "SERB Sponsored, IEEE Xplore, 2024."
+    },
+    {
+      "title": "1st International Conference on Automation & Computation (AutoCom-22)",
+      "details": "DRDO Sponsored, CRC Press (Taylor & Francis), 2022."
+    }
+  ],
+  "selected_publications": [
+    "Policy for random aerial deployment in large scale wireless sensor networks – CCAA 2015.",
+    "Cervical cancer prediction using machine learning – ICIDCA 2023.",
+    "Water quality prediction using machine learning – ICIDCA 2023.",
+    "Crop recommendation systems using diverse machine learning methodologies – DICCT 2023.",
+    "Autism Spectrum Disorder (ASD) diagnosis using machine learning – DICCT 2023.",
+    "Sentiment analysis in stock price prediction – INDIACom 2023.",
+    "EfficientNetB3 for automated pest detection in agriculture – INDIACom 2023.",
+    "Mental health treatment adherence prediction – CICTN 2023.",
+    "Optimizing hypothyroid diagnosis using machine learning – CICTN 2023.",
+    "Liver disease prediction using machine learning algorithms – CICTN 2023."
+  ],
+  "books": [
+    {
+      "title": "Automation and Computation",
+      "details": "Edited volume published by CRC Press (Taylor & Francis)."
+    },
+    {
+      "title": "A Practitioner's Approach to Problem-Solving using AI",
+      "details": "Edited volume published by Bentham Science Publishers (Scopus indexed)."
+    }
+  ],
+  "reviewer_roles": [
+    "SN Computer Science (Springer Nature).",
+    "ISA Transactions (SCI/SCIE indexed).",
+    "Wireless Personal Communications (Springer, SCI).",
+    "Journal of Information and Optimization Sciences.",
+    "Frontiers in Oncology."
+  ]
+}

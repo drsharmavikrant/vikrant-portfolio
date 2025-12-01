@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dr. Vikrant Sharma | SM-IEEE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Dr. Vikrant Sharma - Senior Member IEEE, Assistant Professor in Computer Science & Engineering, researcher in Wireless Sensor Networks, Machine Learning and IoT." />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-wxM5H3ObXvX6k7lWcgo6SsxvPVf8jSRb2C3x63uLGB0y6b1m3s7pIVYpCplxVx6z+fQ3qM4d8Wi9uYVYJ6Lqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      /* Tech Orange & Slate */
+      --bg: #f5f5f6;
+      --bg-alt: #ffffff;
+      --card: #ffffff;
+
+      --accent: #f97316;
+      --accent-2: #ea580c;
+
+      --text: #111827;
+      --muted: #4b5563;
+
+      --border-subtle: rgba(148, 163, 184, 0.5);
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
+
+      --radius-xl: 24px;
+      --radius-pill: 999px;
+      --nav-height: 74px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #e5e7eb 0, #f5f5f6 40%, #e5e7eb 100%);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem 4rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(245, 245, 246, 0.98), rgba(245, 245, 246, 0.9), transparent);
+      border-bottom: 1px solid rgba(209, 213, 219, 0.7);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.25rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-logo-circle {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #f9fafb;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9), 0 8px 25px rgba(15, 23, 42, 0.25);
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-title-main {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .nav-title-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Top quick-access buttons just below the nav bar */
+    .top-quick-links {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      margin-top: 0.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: flex-start;
+    }
+
+    .top-quick-links-inner {
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+      padding: 0.4rem 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .top-quick-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #6b7280;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      background: #f9fafb;
+    }
+
+    .top-quick-btn {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      background: #fff7ed;
+      color: #9a3412;
+    }
+
+    .top-quick-btn i {
+      font-size: 0.9rem;
+    }
+
+    .top-quick-btn.primary {
+      background: var(--accent);
+      color: #fefce8;
+      border-color: rgba(249, 115, 22, 0.9);
+      box-shadow: 0 8px 20px rgba(249, 115, 22, 0.45);
+    }
+
+    .top-quick-btn.secondary {
+      background: #f9fafb;
+      color: var(--muted);
+      border-color: var(--border-subtle);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.25rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: none;
+      color: var(--text);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #f9fafb;
+      box-shadow: 0 10px 25px rgba(249, 115, 22, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 16px 35px rgba(249, 115, 22, 0.45);
+    }
+
+    .btn-ghost {
+      border-color: var(--border-subtle);
+      background: #f9fafb;
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      background: #e5e7eb;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+
+    .theme-toggle {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #f9fafb;
+      cursor: pointer;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+      color: #f97316;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+
+    .hero {
+      padding-top: 2.5rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+      gap: 2.5rem;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-pill);
+      background: #fff7ed;
+      border: 1px solid rgba(251, 146, 60, 0.9);
+      color: #9a3412;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.25);
+    }
+
+    .hero-title {
+      margin-top: 1rem;
+      font-size: clamp(2.4rem, 4vw, 3rem);
+      line-height: 1.15;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .hero-title span.accent {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      margin-top: 0.75rem;
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 38rem;
+    }
+
+    .hero-sub strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .hero-tags {
+      margin-top: 1.1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      background: #fff7ed;
+      border: 1px solid rgba(251, 146, 60, 0.8);
+      color: #9a3412;
+    }
+
+    .hero-cta {
+      margin-top: 1.7rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .hero-meta {
+      margin-top: 1.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .hero-meta-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+      color: #9ca3af;
+    }
+
+    .hero-meta-value {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* Hero card */
+
+    .hero-card {
+      border-radius: calc(var(--radius-xl) * 1.2);
+      background: radial-gradient(circle at 0% 0%, rgba(254, 243, 199, 0.8), transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(254, 215, 170, 0.9), transparent 60%),
+        linear-gradient(135deg, #ffffff, #fefce8);
+      border: 1px solid rgba(251, 191, 36, 0.8);
+      box-shadow: var(--shadow-soft);
+      padding: 1.6rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      color: var(--text);
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 32px;
+      border: 2px solid rgba(255, 251, 235, 0.9);
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.25);
+      background: #111827;
+    }
+
+    .hero-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-role {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .hero-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 0.25rem;
+    }
+
+    .hero-tags-compact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.3rem;
+    }
+
+    .stat-card {
+      border-radius: 18px;
+      padding: 0.7rem 0.8rem;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(253, 224, 171, 0.9);
+      box-shadow: 0 10px 26px rgba(148, 163, 184, 0.25);
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .stat-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-top: 0.15rem;
+    }
+
+    .stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.65rem;
+      background: #fffbeb;
+      border: 1px solid rgba(251, 146, 60, 0.5);
+      margin-top: 0.35rem;
+      color: #9a3412;
+    }
+
+    .hero-links {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .hero-links a {
+      font-size: 0.7rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      background: #f9fafb;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .hero-links a i {
+      font-size: 0.8rem;
+    }
+
+    /* Sections */
+
+    section {
+      margin-top: 3.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text);
+    }
+
+    .section-title span {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(251, 191, 36, 0.55);
+    }
+
+    .section-subtitle {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .card {
+      border-radius: var(--radius-xl);
+      background: var(--card);
+      border: 1px solid var(--border-subtle);
+      padding: 1.4rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card + .card {
+      margin-top: 1rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.6rem;
+    }
+
+    .list {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .list li {
+      position: relative;
+      padding-left: 1.1rem;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+
+    .list li + li {
+      margin-top: 0.35rem;
+    }
+
+    .list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.8rem;
+      top: 0.15rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.4rem;
+    }
+
+    .pill {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(251, 191, 36, 0.8);
+      background: #fffbeb;
+      color: #92400e;
+    }
+
+    .pill-muted {
+      color: var(--muted);
+    }
+
+    /* Timeline */
+
+    .timeline {
+      margin-top: 0.5rem;
+      border-left: 1px dashed rgba(148, 163, 184, 0.8);
+      padding-left: 1rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-bullet {
+      position: absolute;
+      left: -1.25rem;
+      top: 0.05rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(251, 191, 36, 0.7);
+    }
+
+    .timeline-role {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .timeline-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    .timeline-note {
+      font-size: 0.8rem;
+      color: var(--text);
+      margin-top: 0.3rem;
+    }
+
+    /* Publications */
+
+    .pub-list {
+      margin-top: 0.5rem;
+    }
+
+    .pub-item {
+      padding: 0.75rem 0;
+      border-bottom: 1px dashed rgba(209, 213, 219, 0.9);
+    }
+
+    .pub-item:last-child {
+      border-bottom: none;
+    }
+
+    .pub-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .pub-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    .pub-tags {
+      margin-top: 0.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    /* Contact / Students / QR */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 3fr 2.2fr;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      font-size: 0.85rem;
+    }
+
+    .contact-list li + li {
+      margin-top: 0.5rem;
+    }
+
+    .contact-label {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .contact-value {
+      color: var(--muted);
+      margin-top: 0.1rem;
+      font-size: 0.83rem;
+      word-break: break-word;
+    }
+
+    .contact-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.75rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(209, 213, 219, 0.9);
+      padding-top: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    footer span:last-child {
+      opacity: 0.9;
+    }
+
+    /* Back to top */
+
+    .back-to-top {
+      position: fixed;
+      bottom: 1.6rem;
+      right: 1.4rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fefce8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 40px rgba(249, 115, 22, 0.55);
+      border: 1px solid rgba(251, 191, 36, 0.9);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 40;
+      font-size: 1rem;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Scroll reveal */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .data-error {
+      font-size: 0.8rem;
+      color: #b91c1c;
+      margin-top: 0.5rem;
+    }
+
+    /* Dark mode – tech dashboard style */
+
+    body.dark-mode {
+      background: radial-gradient(circle at top, #020617 0, #020617 40%, #020617 100%);
+      color: #e5e7eb;
+    }
+
+    body.dark-mode header {
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.9), transparent);
+      border-color: rgba(31, 41, 55, 0.9);
+    }
+
+    body.dark-mode .nav-title-main {
+      color: #f9fafb;
+    }
+
+    body.dark-mode .nav-title-sub {
+      color: #9ca3af;
+    }
+
+    body.dark-mode .nav-links a {
+      color: #9ca3af;
+    }
+
+    body.dark-mode .nav-links a:hover {
+      color: #f9fafb;
+    }
+
+    body.dark-mode .theme-toggle {
+      background: #020617;
+      color: #fde68a;
+      border-color: rgba(55, 65, 81, 0.9);
+    }
+
+    body.dark-mode .card,
+    body.dark-mode .hero-card {
+      background: #020617;
+      border-color: rgba(55, 65, 81, 0.9);
+      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.9);
+    }
+
+    body.dark-mode .hero-card {
+      background: radial-gradient(circle at 0% 0%, rgba(30, 64, 175, 0.5), transparent 55%),
+                  radial-gradient(circle at 100% 0%, rgba(180, 83, 9, 0.7), transparent 60%),
+                  linear-gradient(135deg, #020617, #020617);
+    }
+
+    body.dark-mode .hero-title,
+    body.dark-mode .section-title {
+      color: #f9fafb;
+    }
+
+    body.dark-mode .hero-sub,
+    body.dark-mode .section-subtitle,
+    body.dark-mode .timeline-note,
+    body.dark-mode .pub-meta,
+    body.dark-mode .contact-note {
+      color: #9ca3af;
+    }
+
+    body.dark-mode .list li {
+      color: #e5e7eb;
+    }
+
+    body.dark-mode footer {
+      border-color: #111827;
+      color: #9ca3af;
+    }
+
+    body.dark-mode .hero-links a {
+      background: #020617;
+      color: #e5e7eb;
+      border-color: rgba(55, 65, 81, 0.9);
+    }
+
+    body.dark-mode .btn-ghost {
+      background: #020617;
+      color: #e5e7eb;
+      border-color: rgba(55, 65, 81, 0.9);
+    }
+
+    body.dark-mode .nav-logo-circle {
+      background: var(--accent);
+      color: #020617;
+    }
+
+    body.dark-mode .back-to-top {
+      background: var(--accent);
+      color: #020617;
+      box-shadow: 0 18px 40px rgba(249, 115, 22, 0.7);
+    }
+
+    body.dark-mode .pill,
+    body.dark-mode .tag,
+    body.dark-mode .chip,
+    body.dark-mode .stat-pill {
+      background: #111827;
+      border-color: rgba(75, 85, 99, 0.9);
+      color: #fef9c3;
+    }
+
+    body.dark-mode .timeline-bullet,
+    body.dark-mode .section-title span {
+      box-shadow: 0 0 0 5px rgba(55, 65, 81, 0.9);
+    }
+
+    body.dark-mode .top-quick-links-inner {
+      background: rgba(15, 23, 42, 0.98);
+      border-color: rgba(55, 65, 81, 0.9);
+      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.9);
+    }
+
+    body.dark-mode .top-quick-label {
+      background: #020617;
+      color: #9ca3af;
+    }
+
+    body.dark-mode .top-quick-btn.secondary {
+      background: #020617;
+      color: #e5e7eb;
+      border-color: rgba(55, 65, 81, 0.9);
+    }
+
+    body.dark-mode .top-quick-btn.primary {
+      background: var(--accent);
+      color: #020617;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 960px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1.5fr);
+      }
+      .hero-card {
+        order: -1;
+      }
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        background: rgba(245, 245, 246, 0.98);
+      }
+      body.dark-mode header {
+        background: rgba(15, 23, 42, 0.98);
+      }
+      .nav-links {
+        display: none;
+      }
+      .nav {
+        gap: 0.6rem;
+      }
+      .hero {
+        padding-top: 1.2rem;
+      }
+      .hero-card {
+        padding: 1.3rem 1.1rem;
+      }
+      section {
+        margin-top: 2.7rem;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .top-quick-links-inner {
+        border-radius: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page {
+        padding: 0 1rem 3.2rem;
+      }
+      .hero-title {
+        font-size: 2.1rem;
+      }
+      .hero-meta {
+        flex-direction: column;
+        gap: 0.85rem;
+      }
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .back-to-top {
+        width: 36px;
+        height: 36px;
+      }
+
+      .top-quick-links-inner {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .top-quick-btn {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="top">
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="nav-logo-circle">VS</div>
+        <div class="nav-title">
+          <span class="nav-title-main">Dr. Vikrant Sharma</span>
+          <span class="nav-title-sub">Senior Member IEEE • Researcher</span>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#patents">Patents</a>
+        <a href="#conferences">Conferences &amp; Editorial</a>
+        <a href="#experience">Experience</a>
+        <a href="#students">For Students</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fa-regular fa-moon"></i>
+        </button>
+        <a href="#contact" class="btn btn-primary">
+          <i class="fa-regular fa-paper-plane"></i>
+          Connect
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Top quick access links -->
+  <div class="top-quick-links">
+    <div class="top-quick-links-inner">
+      <div class="top-quick-label">
+        QUICK ACCESS
+      </div>
+
+      <!-- Link to video lectures page -->
+      <a href="lectures.html" class="top-quick-btn primary">
+        <i class="fa-brands fa-youtube"></i>
+        Video Lectures
+      </a>
+
+      <!-- Link to lecture notes page -->
+      <a href="notes.html" class="top-quick-btn secondary">
+        <i class="fa-regular fa-file-lines"></i>
+        Lecture Notes
+      </a>
+
+      <!-- Link to For Students section -->
+      <a href="#students" class="top-quick-btn secondary">
+        <i class="fa-solid fa-users"></i>
+        For Students
+      </a>
+    </div>
+  </div>
+
+  <main class="page">
+    <!-- HERO -->
+    <section class="hero reveal">
+      <div class="hero-inner">
+        <div>
+          <div class="chip">
+            <span class="chip-dot"></span>
+            <span>Computer Science &amp; Engineering • Academician</span>
+          </div>
+
+          <h1 class="hero-title">
+            Dr. <span class="accent">Vikrant&nbsp;Sharma</span><br />
+            <span style="font-size:0.8em; font-weight:400;">Ph.D. (CSE) • Senior Member IEEE</span>
+          </h1>
+
+          <p class="hero-sub">
+            I am an Assistant Professor in <strong>Computer Science &amp; Engineering</strong> at
+            <strong>Graphic Era Hill University, Dehradun</strong>, and a <strong>Senior Member IEEE</strong>.
+            My research focuses on <strong>Wireless Sensor Networks</strong>, <strong>Machine Learning</strong>,
+            and <strong>IoT-based intelligent systems</strong>, with applications in healthcare, agriculture,
+            and smart environments.
+          </p>
+
+          <div class="hero-tags">
+            <span class="tag">Wireless Sensor Networks</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">IoT &amp; Smart Systems</span>
+            <span class="tag">Medical Imaging</span>
+            <span class="tag">Automation &amp; Computation</span>
+          </div>
+
+          <div class="hero-cta">
+            <!-- Update href to your actual CV file path -->
+            <a href="Vikrant_Sharma_CV.pdf" class="btn btn-primary">
+              <i class="fa-regular fa-circle-down"></i>
+              Download CV
+            </a>
+            <a href="https://scholar.google.com/citations?user=zppilUcAAAAJ&hl=en" target="_blank" class="btn btn-ghost">
+              <i class="fa-brands fa-google"></i>
+              Google Scholar
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Academic Profile</span>
+              <span class="hero-meta-value">Ph.D. (CSE), Uttarakhand Technical University</span>
+              <span style="font-size:0.75rem; color:var(--muted);">
+                M.Tech (CSE), MMEC (MMU) • B.Tech &amp; Diploma (IT)
+              </span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Professional Memberships</span>
+              <span class="hero-meta-value">Senior Member IEEE (ID: 99090538)</span>
+              <span style="font-size:0.75rem; color:var(--muted);">ACM Professional Member</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="hero-card-inner">
+            <div class="hero-avatar">
+              <!-- Replace src with your real photo path -->
+              <img src="images/vikrant-sharma.jpeg" alt="Dr. Vikrant Sharma" />
+            </div>
+            <div class="hero-role">Assistant Professor • CSE</div>
+            <div class="hero-name">Graphic Era Hill University</div>
+
+            <div class="hero-tags-compact">
+              <span class="pill">Dehradun, Uttarakhand (India)</span>
+              <span class="pill pill-muted">ORCID: 0000-0003-3178-8657</span>
+            </div>
+
+            <div class="hero-stats">
+              <div class="stat-card">
+                <div class="stat-label">Academic &amp; Research</div>
+                <div class="stat-value">7+ years</div>
+                <div class="stat-pill">
+                  <i class="fa-solid fa-building-columns"></i>
+                  LPU • GEHU
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Publications</div>
+                <div class="stat-value">SCI / SCIE / Scopus</div>
+                <div class="stat-pill">
+                  <i class="fa-regular fa-newspaper"></i>
+                  Journals &amp; Conferences
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Innovation</div>
+                <div class="stat-value">Patents</div>
+                <div class="stat-pill">
+                  <i class="fa-regular fa-lightbulb"></i>
+                  Granted &amp; Published
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-links">
+              <a href="mailto:dr.sharmavikrant@gmail.com">
+                <i class="fa-regular fa-envelope"></i>
+                dr.sharmavikrant@gmail.com
+              </a>
+              <a href="mailto:vsharma@gehu.ac.in">
+                <i class="fa-solid fa-building-columns"></i>
+                vsharma@gehu.ac.in
+              </a>
+              <a href="https://orcid.org/0000-0003-3178-8657" target="_blank">
+                <i class="fa-brands fa-orcid"></i>
+                ORCID Profile
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ABOUT (still static text) -->
+    <section id="about" class="reveal">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span></span> About
+        </h2>
+        <p class="section-subtitle">Academic journey &amp; research focus</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <p style="font-size:0.9rem;">
+            I am an academician in <strong>Computer Science &amp; Engineering</strong> with a strong
+            foundation in <strong>Wireless Sensor Networks</strong>, <strong>Internet of Things</strong>,
+            and <strong>Machine Learning</strong>. My work spans sensor deployment strategies,
+            autonomous systems, and intelligent data-driven solutions in healthcare, agriculture,
+            and smart environments.
+          </p>
+          <p style="font-size:0.9rem; margin-top:0.75rem;">
+            I received my <strong>Ph.D. in Computer Science &amp; Engineering</strong> from
+            Uttarakhand Technical University, Dehradun (2013–2017), following an
+            <strong>M.Tech in CSE</strong> from Maharishi Markandeshwar Engineering College (MMU),
+            <strong>B.Tech in Information Technology</strong> from IEET (HPU), and a
+            <strong>Diploma in Information Technology</strong> from Govt. Polytechnic Hamirpur.
+          </p>
+
+          <div style="margin-top:0.9rem;">
+            <div style="font-size:0.8rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:0.4rem;">
+              Quick Highlights
+            </div>
+            <div class="pill-row">
+              <span class="pill">Ph.D. (Computer Science &amp; Engineering)</span>
+              <span class="pill">M.Tech (CSE), MMU</span>
+              <span class="pill">B.Tech &amp; Diploma (Information Technology)</span>
+              <span class="pill">Convener – AutoCom &amp; CyberCom conferences</span>
+              <span class="pill">“C” Certificate Holder in NCC</span>
+              <span class="pill">Research Achievement Award 2024</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="font-size:0.8rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:0.5rem;">
+            Core Research Interests
+          </div>
+          <ul class="list">
+            <li>Deployment schemes and coverage strategies in <strong>Wireless Sensor Networks</strong>.</li>
+            <li><strong>Machine Learning</strong> models for medical imaging, disease diagnosis and prediction.</li>
+            <li><strong>IoT-based systems</strong> for water, air quality, and agricultural monitoring.</li>
+            <li>Automation, robotics, and <strong>glider-assisted sensor deployment</strong>.</li>
+            <li>Network traffic analysis, security and intelligent decision systems.</li>
+          </ul>
+
+          <div style="margin-top:1.1rem;">
+            <div style="font-size:0.8rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:0.35rem;">
+              Technical Skills
+            </div>
+            <div class="pill-row">
+              <span class="pill">Java</span>
+              <span class="pill">C / C++</span>
+              <span class="pill">Python</span>
+              <span class="pill">Matlab</span>
+              <span class="pill">JSP / PHP / HTML / JS</span>
+              <span class="pill">MySQL / Oracle</span>
+              <span class="pill">Linux / Windows / Android</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH & PROJECTS (JSON driven) -->
+    <section id="research" class="reveal">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span></span> Research &amp; Selected Work
+        </h2>
+        <p class="section-subtitle">Representative contributions in WSN, ML &amp; automation</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="font-size:0.95rem; font-weight:600; margin-bottom:0.4rem;">Research Themes</h3>
+          <ul id="research-themes" class="list"></ul>
+          <div id="research-themes-error" class="data-error"></div>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:0.95rem; font-weight:600; margin-bottom:0.4rem;">Showcase Projects</h3>
+          <ul id="research-projects" class="list"></ul>
+          <div id="research-projects-error" class="data-error"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS (JSON driven) -->
+    <section id="publications" class="reveal">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span></span> Publications
+        </h2>
+        <p class="section-subtitle">
+          SCI / SCIE, Scopus &amp; WoS indexed journal articles
+        </p>
+      </div>
+
+      <div class="card">
+        <div style="font-size:0.85rem; color:var(--muted);">
+          Below is a selected list of journal articles. For the complete and latest list, please refer to my
+          <a href="https://scholar.google.com/citations?user=zppilUcAAAAJ&hl=en" target="_blank" style="color:var(--accent-2); text-decoration:underline;">
+            Google Scholar profile
+          </a>.
+        </div>
+
+        <div id="pub-list" class="pub-list" style="margin-top:0.9rem;"></div>
+        <div id="pub-list-error" class="data-error"></div>
+      </div>
+    </section>
+
+    <!-- PATENTS (JSON driven) -->
+    <section id="patents" class="reveal">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span></span> Patents &amp; Innovation
+        </h2>
+        <p class="section-subtitle">Granted and published patents in WSN, imaging &amp; smart systems</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="font-size:0.95rem; font-weight:600; margin-bottom:0.4rem;">Patents Granted</h3>
+          <ul id="patents-granted" class="list"></ul>
+          <div id="patents-granted-error" class="data-error"></div>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:0.95rem; font-weight:600; margin-bottom:0.4rem;">Patents Published (Selected)</h3>
+          <ul id="patents-published" class="list"></ul>
+          <div id="patents-published-error" class="data-error"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONFERENCES & EDITORIAL (JSON driven) -->
+    <section id="conferences" class="reveal">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span></span> Conferences, Books &amp; Editorial Roles
+        </h2>
+        <p class="section-subtitle">Conference convener, book editor and reviewer</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="font-size:0.95rem; font-weight:600; margin-bottom:0.5rem;">Conferences Organized (Convener)</h3>
+          <ul id="conf-organized" class="list"></ul>
+          <div id="conf-organized-error" class="data-error"></div>
+
+          <h3 style="font-size:0.95rem; font-weight:600; margin-top:1rem; margin-bottom:0.4rem;">
+            Selected Conference Publications
+          </h3>
+          <ul id="conf-publications" class="list"></ul>
+          <div id="conf-publications-error" class="data-error"></div>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:0.95rem; font-weight:600; margin-bottom:0.5rem;">Books Edited</h3>
+          <ul id="books-edited" class="list"></ul>
+          <div id="books-edited-error" class="data-error"></div>
+
+          <h3 style="font-size:0.95rem; font-weight:600; margin-top:1rem; margin-bottom:0.5rem;">Reviewer &amp; Editorial Member</h3>
+          <ul id="reviewer-roles" class="list"></ul>
+          <div id="reviewer-roles-error" class="data-error"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE & TEACHING (JSON driven) -->
+    <section id="experience" class="reveal">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span></span> Experience &amp; Teaching
+        </h2>
+        <p class="section-subtitle">Academic appointments and courses taught</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="font-size:0.95rem; font-weight:600; margin-bottom:0.4rem;">Academic Positions</h3>
+          <div id="experience-timeline" class="timeline"></div>
+          <div id="experience-timeline-error" class="data-error"></div>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:0.95rem; font-weight:600; margin-bottom:0.6rem;">Courses Taught</h3>
+          <ul id="courses-taught" class="list"></ul>
+          <div id="courses-taught-error" class="data-error"></div>
+
+          <h3 style="font-size:0.95rem; font-weight:600; margin-top:1.1rem; margin-bottom:0.4rem;">Mentorship &amp; Training</h3>
+          <ul id="mentorship-training" class="list"></ul>
+          <div id="mentorship-training-error" class="data-error"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOR STUDENTS (JSON driven) -->
+    <section id="students" class="reveal">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span></span> For Students
+        </h2>
+        <p class="section-subtitle">Project ideas, thesis topics &amp; collaboration guidelines</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="font-size:0.95rem; font-weight:600; margin-bottom:0.6rem;">
+            Opportunities &amp; Areas of Interest
+          </h3>
+          <ul id="student-areas" class="list"></ul>
+          <div id="student-areas-error" class="data-error"></div>
+
+          <div style="margin-top:1.1rem;">
+            <div style="font-size:0.8rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:0.35rem;">
+              How to Reach Out
+            </div>
+            <ul id="student-howto" class="list"></ul>
+            <div id="student-howto-error" class="data-error"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:0.95rem; font-weight:600; margin-bottom:0.6rem;">
+            Sample Project &amp; Thesis Topics
+          </h3>
+          <ul id="student-projects" class="list"></ul>
+          <div id="student-projects-error" class="data-error"></div>
+
+          <div style="margin-top:1.1rem;">
+            <div style="font-size:0.8rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:0.35rem;">
+              Expectations from Students
+            </div>
+            <ul id="student-expectations" class="list"></ul>
+            <div id="student-expectations-error" class="data-error"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS (JSON driven) -->
+    <section id="recognition" class="reveal">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span></span> Achievements &amp; Activities
+        </h2>
+        <p class="section-subtitle">Awards, positions and co-curricular engagement</p>
+      </div>
+
+      <div class="card">
+        <ul id="achievements-list" class="list"></ul>
+        <div id="achievements-list-error" class="data-error"></div>
+      </div>
+    </section>
+
+    <!-- QR CODE / QUICK ACCESS -->
+    <section id="qr" class="reveal">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span></span> Quick Access
+        </h2>
+        <p class="section-subtitle">Scan to open this website on your phone</p>
+      </div>
+
+      <div class="card" style="max-width:280px;">
+        <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.75rem;">
+          Point your phone camera at this QR code to directly open my academic homepage.
+        </p>
+        <!-- Replace src with your generated QR image -->
+        <img src="images/site-qr.png"
+             alt="QR code to open this website"
+             style="max-width:180px; border-radius:16px; border:1px solid var(--border-subtle); padding:8px; background:#ffffff;" />
+      </div>
+    </section>
+
+    <!-- CONTACT (static – these change rarely) -->
+    <section id="contact" class="reveal">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span></span> Contact
+        </h2>
+        <p class="section-subtitle">Professional correspondence &amp; collaborations</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="card">
+          <ul class="contact-list">
+            <li>
+              <div class="contact-label"><i class="fa-regular fa-envelope"></i> Email</div>
+              <div class="contact-value">
+                <a href="mailto:dr.sharmavikrant@gmail.com">dr.sharmavikrant@gmail.com</a><br />
+                <a href="mailto:vsharma@gehu.ac.in">vsharma@gehu.ac.in</a>
+              </div>
+            </li>
+            <li>
+              <div class="contact-label"><i class="fa-solid fa-phone"></i> Phone</div>
+              <div class="contact-value">
+                <a href="tel:+919082373573">+91 90823 73573</a>
+              </div>
+            </li>
+            <li>
+              <div class="contact-label"><i class="fa-solid fa-location-dot"></i> Address</div>
+              <div class="contact-value">
+                VPO. Ambari near canal flour mills,<br />
+                via Dakpathar, Distt. Dehradun,<br />
+                Uttarakhand, India – 248125
+              </div>
+            </li>
+            <li>
+              <div class="contact-label"><i class="fa-brands fa-google"></i> Google Scholar</div>
+              <div class="contact-value">
+                <a href="https://scholar.google.com/citations?user=zppilUcAAAAJ&hl=en" target="_blank">
+                  View my Google Scholar profile
+                </a>
+              </div>
+            </li>
+            <li>
+              <div class="contact-label"><i class="fa-brands fa-orcid"></i> ORCID</div>
+              <div class="contact-value">
+                <a href="https://orcid.org/0000-0003-3178-8657" target="_blank">
+                  0000-0003-3178-8657
+                </a>
+              </div>
+            </li>
+          </ul>
+
+          <p class="contact-note">
+            I am open to <strong>research collaborations</strong>, <strong>doctoral supervision</strong>,
+            invited talks, and joint industry–academia projects in Wireless Sensor Networks,
+            Machine Learning, IoT, and related domains.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:0.9rem; font-weight:600; margin-bottom:0.5rem;">Quick Message Template</h3>
+          <p style="font-size:0.82rem; color:var(--muted);">
+            When reaching out, you may include:
+          </p>
+          <ul class="list" style="margin-top:0.4rem;">
+            <li>A brief introduction and your affiliation.</li>
+            <li>How our research interests intersect.</li>
+            <li>Any specific problem, dataset, or collaboration idea.</li>
+          </ul>
+          <p style="font-size:0.8rem; color:var(--muted); margin-top:0.7rem;">
+            I will do my best to respond at the earliest possible opportunity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>&copy; <span id="year"></span> Dr. Vikrant Sharma. All rights reserved.</span>
+      <span>Designed for clarity, research visibility &amp; professional outreach.</span>
+    </footer>
+  </main>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Utility: load JSON with error handling
+    async function loadJSON(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error('Could not load ' + path);
+      return res.json();
+    }
+
+    // PUBLICATIONS
+    async function loadPublications() {
+      const container = document.getElementById('pub-list');
+      const errorEl = document.getElementById('pub-list-error');
+      if (!container) return;
+
+      try {
+        const publications = await loadJSON('data/publications.json');
+        publications.forEach(pub => {
+          const item = document.createElement('div');
+          item.className = 'pub-item';
+
+          const tagsHtml = (pub.tags || [])
+            .map(tag => '<span class="pill">' + tag + '</span>')
+            .join(' ');
+
+          item.innerHTML = `
+            <div class="pub-title">${pub.title}</div>
+            <div class="pub-meta">
+              ${pub.venue || ''}${pub.volume_issue_pages ? ', ' + pub.volume_issue_pages : ''}${pub.year ? ', ' + pub.year : ''}
+              ${pub.indexing ? ' (' + pub.indexing + ')' : ''}
+            </div>
+            <div class="pub-tags">
+              ${tagsHtml}
+            </div>
+          `;
+          container.appendChild(item);
+        });
+      } catch (err) {
+        console.error(err);
+        if (errorEl) {
+          errorEl.textContent = 'Publications data file not found. Please create data/publications.json';
+        }
+      }
+    }
+
+    // PATENTS
+    async function loadPatents() {
+      const grantedEl = document.getElementById('patents-granted');
+      const grantedErr = document.getElementById('patents-granted-error');
+      const publishedEl = document.getElementById('patents-published');
+      const publishedErr = document.getElementById('patents-published-error');
+      if (!grantedEl || !publishedEl) return;
+
+      try {
+        const data = await loadJSON('data/patents.json');
+        const granted = data.granted || [];
+        const published = data.published || [];
+
+        granted.forEach(p => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${p.title}</strong><br>${p.details || ''}`;
+          grantedEl.appendChild(li);
+        });
+
+        published.forEach(p => {
+          const li = document.createElement('li');
+          li.textContent = p;
+          publishedEl.appendChild(li);
+        });
+      } catch (err) {
+        console.error(err);
+        if (grantedErr) grantedErr.textContent = 'Patents data file not found. Please create data/patents.json';
+      }
+    }
+
+    // RESEARCH
+    async function loadResearch() {
+      const themesEl = document.getElementById('research-themes');
+      const themesErr = document.getElementById('research-themes-error');
+      const projectsEl = document.getElementById('research-projects');
+      const projectsErr = document.getElementById('research-projects-error');
+      if (!themesEl || !projectsEl) return;
+
+      try {
+        const data = await loadJSON('data/research.json');
+        (data.themes || []).forEach(t => {
+          const li = document.createElement('li');
+          li.innerHTML = t;
+          themesEl.appendChild(li);
+        });
+
+        (data.projects || []).forEach(p => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${p.title}</strong><br>${p.description || ''}`;
+          projectsEl.appendChild(li);
+        });
+      } catch (err) {
+        console.error(err);
+        if (themesErr) themesErr.textContent = 'Research data file not found. Please create data/research.json';
+      }
+    }
+
+    // CONFERENCES & EDITORIAL
+    async function loadConferences() {
+      const orgEl = document.getElementById('conf-organized');
+      const orgErr = document.getElementById('conf-organized-error');
+      const pubEl = document.getElementById('conf-publications');
+      const pubErr = document.getElementById('conf-publications-error');
+      const booksEl = document.getElementById('books-edited');
+      const booksErr = document.getElementById('books-edited-error');
+      const revEl = document.getElementById('reviewer-roles');
+      const revErr = document.getElementById('reviewer-roles-error');
+      if (!orgEl || !pubEl || !booksEl || !revEl) return;
+
+      try {
+        const data = await loadJSON('data/conferences.json');
+
+        (data.organized || []).forEach(c => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${c.title}</strong><br>${c.details || ''}`;
+          orgEl.appendChild(li);
+        });
+
+        (data.selected_publications || []).forEach(c => {
+          const li = document.createElement('li');
+          li.textContent = c;
+          pubEl.appendChild(li);
+        });
+
+        (data.books || []).forEach(b => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${b.title}</strong><br>${b.details || ''}`;
+          booksEl.appendChild(li);
+        });
+
+        (data.reviewer_roles || []).forEach(r => {
+          const li = document.createElement('li');
+          li.textContent = r;
+          revEl.appendChild(li);
+        });
+      } catch (err) {
+        console.error(err);
+        if (orgErr) orgErr.textContent = 'Conferences data file not found. Please create data/conferences.json';
+      }
+    }
+
+    // EXPERIENCE & TEACHING
+    async function loadExperience() {
+      const expEl = document.getElementById('experience-timeline');
+      const expErr = document.getElementById('experience-timeline-error');
+      const coursesEl = document.getElementById('courses-taught');
+      const coursesErr = document.getElementById('courses-taught-error');
+      const mentorEl = document.getElementById('mentorship-training');
+      const mentorErr = document.getElementById('mentorship-training-error');
+      if (!expEl || !coursesEl || !mentorEl) return;
+
+      try {
+        const data = await loadJSON('data/experience.json');
+
+        (data.positions || []).forEach(pos => {
+          const item = document.createElement('div');
+          item.className = 'timeline-item';
+          item.innerHTML = `
+            <div class="timeline-bullet"></div>
+            <div class="timeline-role">${pos.role}</div>
+            <div class="timeline-meta">${pos.institution} • ${pos.duration}</div>
+            <div class="timeline-note">${pos.description || ''}</div>
+          `;
+          expEl.appendChild(item);
+        });
+
+        (data.courses || []).forEach(c => {
+          const li = document.createElement('li');
+          li.textContent = c;
+          coursesEl.appendChild(li);
+        });
+
+        (data.mentorship || []).forEach(m => {
+          const li = document.createElement('li');
+          li.textContent = m;
+          mentorEl.appendChild(li);
+        });
+      } catch (err) {
+        console.error(err);
+        if (expErr) expErr.textContent = 'Experience data file not found. Please create data/experience.json';
+      }
+    }
+
+    // STUDENTS
+    async function loadStudents() {
+      const areasEl = document.getElementById('student-areas');
+      const areasErr = document.getElementById('student-areas-error');
+      const howtoEl = document.getElementById('student-howto');
+      const howtoErr = document.getElementById('student-howto-error');
+      const projEl = document.getElementById('student-projects');
+      const projErr = document.getElementById('student-projects-error');
+      const expEl = document.getElementById('student-expectations');
+      const expErr = document.getElementById('student-expectations-error');
+      if (!areasEl || !howtoEl || !projEl || !expEl) return;
+
+      try {
+        const data = await loadJSON('data/students.json');
+
+        (data.areas || []).forEach(a => {
+          const li = document.createElement('li');
+          li.innerHTML = a;
+          areasEl.appendChild(li);
+        });
+
+        (data.how_to_reach || []).forEach(h => {
+          const li = document.createElement('li');
+          li.textContent = h;
+          howtoEl.appendChild(li);
+        });
+
+        (data.projects || []).forEach(p => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${p.title}</strong><br>${p.description || ''}`;
+          projEl.appendChild(li);
+        });
+
+        (data.expectations || []).forEach(e => {
+          const li = document.createElement('li');
+          li.textContent = e;
+          expEl.appendChild(li);
+        });
+      } catch (err) {
+        console.error(err);
+        if (areasErr) areasErr.textContent = 'Students data file not found. Please create data/students.json';
+      }
+    }
+
+    // ACHIEVEMENTS
+    async function loadAchievements() {
+      const listEl = document.getElementById('achievements-list');
+      const listErr = document.getElementById('achievements-list-error');
+      if (!listEl) return;
+
+      try {
+        const data = await loadJSON('data/achievements.json');
+        (data.items || []).forEach(a => {
+          const li = document.createElement('li');
+          li.textContent = a;
+          listEl.appendChild(li);
+        });
+      } catch (err) {
+        console.error(err);
+        if (listErr) listErr.textContent = 'Achievements data file not found. Please create data/achievements.json';
+      }
+    }
+
+    // Set current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Back to top visibility
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add("visible");
+      } else {
+        backToTop.classList.remove("visible");
+      }
+    });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Dark mode toggle
+    const themeToggle = document.getElementById("themeToggle");
+    const body = document.body;
+    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (prefersDark) {
+      body.classList.add("dark-mode");
+      themeToggle.innerHTML = '<i class="fa-regular fa-sun"></i>';
+    }
+
+    themeToggle.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+      const isDark = body.classList.contains("dark-mode");
+      themeToggle.innerHTML = isDark
+        ? '<i class="fa-regular fa-sun"></i>'
+        : '<i class="fa-regular fa-moon"></i>';
+    });
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll(".reveal");
+    function handleReveal() {
+      const triggerBottom = window.innerHeight * 0.9;
+      revealElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < triggerBottom) {
+          el.classList.add("visible");
+        }
+      });
+    }
+    window.addEventListener("scroll", handleReveal);
+
+    // Load all JSON-driven sections on page load
+    window.addEventListener("load", () => {
+      handleReveal();
+      loadResearch();
+      loadPublications();
+      loadPatents();
+      loadConferences();
+      loadExperience();
+      loadStudents();
+      loadAchievements();
+    });
+  </script>
+</body>
+</html>

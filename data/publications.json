@@ -1,0 +1,114 @@
+[
+  {
+    "title": "Distributed Deployment Scheme for Homogeneous Distribution of Randomly Deployed Mobile Sensor Nodes in Wireless Sensor Network",
+    "venue": "IJACSA – International Journal of Advanced Computer Science and Applications",
+    "year": "2013",
+    "volume_issue_pages": "Vol. 4(4)",
+    "indexing": "Scopus",
+    "tags": ["WSN", "Sensor Deployment", "Scopus"]
+  },
+  {
+    "title": "Deployment schemes in wireless sensor network to achieve blanket coverage in large-scale open area: A review",
+    "venue": "Egyptian Informatics Journal",
+    "year": "2016",
+    "volume_issue_pages": "Vol. 17(1), pp. 45–56",
+    "indexing": "SCI",
+    "tags": ["Coverage", "Survey", "SCI"]
+  },
+  {
+    "title": "Pneumatic Launcher Based Precise Placement Model for Large-Scale Deployment in Wireless Sensor Networks",
+    "venue": "IJACSA – International Journal of Advanced Computer Science and Applications",
+    "year": "2015",
+    "volume_issue_pages": "Vol. 6(12)",
+    "indexing": "Scopus",
+    "tags": ["Pneumatic Launcher", "WSN Deployment", "Scopus"]
+  },
+  {
+    "title": "NADS: Neighbor Assisted Deployment Scheme for Optimal Placement of Sensor Nodes to Achieve Blanket Coverage in Wireless Sensor Network",
+    "venue": "Wireless Personal Communications",
+    "year": "2016",
+    "volume_issue_pages": "Vol. 90(4), pp. 1903–1933",
+    "indexing": "SCI",
+    "tags": ["NADS", "Coverage", "SCI"]
+  },
+  {
+    "title": "Policy for planned placement of sensor nodes in large scale wireless sensor network",
+    "venue": "KSII Transactions on Internet and Information Systems",
+    "year": "2016",
+    "volume_issue_pages": "Vol. 10(7)",
+    "indexing": "SCI",
+    "tags": ["Planned Placement", "WSN", "SCI"]
+  },
+  {
+    "title": "Glider assisted schemes to deploy sensor nodes in Wireless Sensor Networks",
+    "venue": "Robotics and Autonomous Systems",
+    "year": "2018",
+    "volume_issue_pages": "Vol. 100, pp. 1–13",
+    "indexing": "SCI",
+    "tags": ["Glider Assisted", "Autonomous Systems", "SCI"]
+  },
+  {
+    "title": "Multi-Level P2P Traffic Classification Using Heuristic and Statistical-Based Techniques: A Hybrid Approach",
+    "venue": "Symmetry",
+    "year": "2020",
+    "volume_issue_pages": "Vol. 12(12), 2117",
+    "indexing": "SCI",
+    "tags": ["Traffic Classification", "Network", "SCI"]
+  },
+  {
+    "title": "OGAS: Omni-directional Glider Assisted Scheme for autonomous deployment of sensor nodes in open area wireless sensor network",
+    "venue": "ISA Transactions",
+    "year": "2023",
+    "volume_issue_pages": "Vol. 132, pp. 131–145",
+    "indexing": "SCI",
+    "tags": ["OGAS", "WSN Deployment", "SCI"]
+  },
+  {
+    "title": "A heuristic based linear time O(N) novel solution to N-Queen problem",
+    "venue": "Journal of Information and Optimization Sciences",
+    "year": "2023",
+    "volume_issue_pages": "Vol. 44(6), pp. 1087–1096",
+    "indexing": "WoS",
+    "tags": ["N-Queen", "Optimization", "WoS"]
+  },
+  {
+    "title": "Incremental learning-based cascaded model for detection and localization of tuberculosis from chest x-ray images",
+    "venue": "Expert Systems with Applications",
+    "year": "2024",
+    "volume_issue_pages": "Vol. 238, 122129",
+    "indexing": "SCI",
+    "tags": ["Tuberculosis", "Cascaded Model", "Chest X-Ray", "SCI"]
+  },
+  {
+    "title": "Iterative enhancement fusion-based cascaded model for detection and localization of multiple disease from CXR-Images",
+    "venue": "Expert Systems with Applications",
+    "year": "2024",
+    "volume_issue_pages": "Vol. 255, 124464",
+    "indexing": "SCI",
+    "tags": ["Multi-disease", "Chest X-Ray", "SCI"]
+  },
+  {
+    "title": "Heatmap-Based Deep Learning Model for Network Attacks Classification",
+    "venue": "SN Computer Science",
+    "year": "2024",
+    "volume_issue_pages": "Vol. 5(8)",
+    "indexing": "Scopus",
+    "tags": ["Network Attacks", "Deep Learning", "Scopus"]
+  },
+  {
+    "title": "A Progressive Hierarchical Model for Plant Disease Diagnosis",
+    "venue": "SN Computer Science",
+    "year": "2025",
+    "volume_issue_pages": "Vol. 6(2)",
+    "indexing": "Scopus",
+    "tags": ["Plant Disease", "SN Computer Science", "Scopus"]
+  },
+  {
+    "title": "Performance Insights of Convolutional Neural Networks Operating on Distributed Computing Platforms",
+    "venue": "SN Computer Science",
+    "year": "2025",
+    "volume_issue_pages": "Vol. 6(4)",
+    "indexing": "Scopus",
+    "tags": ["CNN", "Distributed Platforms", "Scopus"]
+  }
+]

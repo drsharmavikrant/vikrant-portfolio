@@ -1,0 +1,27 @@
+{
+  "themes": [
+    "Wireless Sensor Networks: deployment schemes, coverage strategies and optimization in large-scale environments.",
+    "Machine Learning models for medical imaging, disease diagnosis and prediction.",
+    "IoT-based systems for water, air quality and agricultural monitoring.",
+    "Automation, robotics and glider-assisted sensor deployment for autonomous systems.",
+    "Network traffic analysis, security and intelligent decision-making systems."
+  ],
+  "projects": [
+    {
+      "title": "WSN Deployment Simulator (Java)",
+      "description": "A simulator for visualizing and experimenting with sensor node deployment strategies in wireless sensor networks."
+    },
+    {
+      "title": "Pneumatic and Glider-Assisted Sensor Deployment",
+      "description": "Models and simulations for pneumatic launcher and glider-assisted deployment of sensor nodes to achieve blanket coverage."
+    },
+    {
+      "title": "ML-based Decision Systems for Healthcare",
+      "description": "Predictive and classification models for cervical cancer, liver disease, hypothyroid diagnosis, ASD diagnosis and mental health treatment adherence."
+    },
+    {
+      "title": "IoT-based Smart Monitoring Systems",
+      "description": "IoT solutions for home automation, air quality improvement, water management, crop recommendation and pest detection."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "areas": [
+    "Minor and major projects in Wireless Sensor Networks: deployment, coverage, simulation and optimization.",
+    "Machine Learning models for classification, prediction and decision support systems in healthcare and other domains.",
+    "IoT-based smart systems for home automation, environment and agriculture monitoring.",
+    "Medical imaging projects using ML and DL for disease detection and localization (X-ray, CT, etc.).",
+    "Data-driven applications using Python, Java, C/C++ and standard ML libraries."
+  ],
+  "how_to_reach": [
+    "Mention your current program, semester and institute.",
+    "Specify whether your work is for a mini project, major project, thesis, internship or personal learning.",
+    "Briefly state your area of interest and any initial project idea you have (even if it is not fully clear).",
+    "Attach or link any dataset or reference paper you would like to work with, if available."
+  ],
+  "projects": [
+    {
+      "title": "WSN Deployment Simulator 2.0",
+      "description": "Enhanced visualization and optimization of sensor placement strategies in large-scale wireless sensor networks, including comparison of multiple deployment algorithms."
+    },
+    {
+      "title": "IoT-based Smart Agriculture Assistant",
+      "description": "Sensor-driven system for soil moisture, weather and crop health monitoring with machine learning based crop and fertilizer recommendations."
+    },
+    {
+      "title": "ML Model for Disease Prediction",
+      "description": "Comparative study of classical machine learning and deep learning models on a selected medical dataset (e.g., liver disease, cervical cancer, hypothyroid)."
+    },
+    {
+      "title": "Air and Water Quality Monitoring using IoT",
+      "description": "Real-time sensing of air and water quality parameters, cloud dashboard, alerts and predictive analytics using machine learning."
+    },
+    {
+      "title": "Computer Vision for X-ray and Scan Analysis",
+      "description": "Feature extraction and classification or localization for a focused medical imaging task, such as tuberculosis or multi-disease detection from chest X-rays."
+    }
+  ],
+  "expectations": [
+    "Regular progress updates and proper documentation of problem, methodology, experiments and results.",
+    "Ethical use of datasets with proper anonymization and respect for privacy and copyright.",
+    "Proper referencing and citation of research papers, datasets and tools used in the project.",
+    "Willingness to learn new tools and libraries (Python, ML libraries, simulators, etc.) as required.",
+    "Professional communication and adherence to timelines agreed at the start of the project."
+  ]
+}
