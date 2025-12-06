@@ -1,1 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Geo-Tagged Photo Generator | Dr. Vikrant Sharma</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Font (same as second file) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons (Font Awesome, same as second file) -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-wxM5H3ObXvX6k7lWcgo6SsxvPVf8jSRb2C3x63uLGB0y6b1m3s7pIVYpCplxVx6z+fQ3qM4d8Wi9uYVYJ6Lqw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <style>
+    :root {
+      /* Tech Orange & Slate – from Dr. Vikrant site */
+      --bg: #f5f5f6;
+      --bg-alt: #ffffff;
+      --card: #ffffff;
+
+      --accent: #f97316;
+      --accent-2: #ea580c;
+
+      --text: #111827;
+      --muted: #4b5563;
+
+      --border-subtle: rgba(148, 163, 184, 0.5);
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
+
+      --radius-xl: 24px;
+      --radius-pill: 999px;
+      --nav-height: 74px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #e5e7eb 0, #f5f5f6 40%, #e5e7eb 100%);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Page container similar to Dr. Vikrant page */
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem 4rem;
+    }
+
+    /* Sticky header / nav bar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(245, 245, 246, 0.98),
+        rgba(245, 245, 246, 0.9),
+        transparent
+      );
+      border-bottom: 1px solid rgba(209, 213, 219, 0.7);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.25rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-logo-circle {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #f9fafb;
+      box-shadow:
+        0 0 0 3px rgba(255, 255, 255, 0.9),
+        0 8px 25px rgba(15, 23, 42, 0.25);
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-title-main {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .nav-title-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-pill {
+      font-size: 0.75rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      background: #f9fafb;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .nav-pill i {
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    /* Section header styling like site sections */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text);
+    }
+
+    .section-title span {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(251, 191, 36, 0.55);
+    }
+
+    .section-subtitle {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Card container for the tool */
+    .tool-card {
+      border-radius: var(--radius-xl);
+      background: var(--card);
+      border: 1px solid var(--border-subtle);
+      padding: 1.6rem 1.5rem 1.8rem;
+      box-shadow: var(--shadow-soft);
+      margin-top: 0.5rem;
+    }
+
+    /* Layout inside card (sections / rows) */
+    .tool-section {
+      margin-bottom: 1.8rem;
+    }
+
+    .tool-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .tool-section h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .info {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-weight: 500;
+      font-size: 0.84rem;
+      color: var(--text);
+    }
+
+    input[type="file"],
+    input[type="number"],
+    input[type="datetime-local"],
+    textarea {
+      font-family: inherit;
+      font-size: 0.9rem;
+      width: 100%;
+      padding: 0.5rem 0.6rem;
+      box-sizing: border-box;
+      border-radius: 10px;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      background: #f9fafb;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    input[type="file"] {
+      padding: 0.5rem 0.4rem;
+    }
+
+    input[type="number"]:focus,
+    input[type="datetime-local"]:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.35);
+      background: #ffffff;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .col {
+      flex: 1 1 250px;
+    }
+
+    .preview {
+      margin-top: 0.75rem;
+      max-width: 100%;
+      max-height: 300px;
+      border-radius: 18px;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      object-fit: contain;
+      background: radial-gradient(circle at top, #fef3c7, #fff7ed 50%, #f9fafb 100%);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.1);
+    }
+
+    /* Buttons styled like site's button system but using existing classes */
+    button {
+      padding: 0.55rem 1.25rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 500;
+      background: #f9fafb;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+      margin-right: 0.5rem;
+      transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    button.primary {
+      background: var(--accent);
+      color: #fefce8;
+      border-color: rgba(249, 115, 22, 0.9);
+      box-shadow: 0 10px 25px rgba(249, 115, 22, 0.35);
+    }
+
+    button.primary:hover:not(:disabled) {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 16px 35px rgba(249, 115, 22, 0.45);
+    }
+
+    button.secondary {
+      background: #f9fafb;
+      color: var(--muted);
+      border-color: var(--border-subtle);
+    }
+
+    button.secondary:hover:not(:disabled) {
+      background: #e5e7eb;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+
+    button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .status {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .status.ok {
+      color: #16a34a;
+    }
+
+    .status.error {
+      color: #b91c1c;
+    }
+
+    .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      padding: 0.55rem 1.3rem;
+      border-radius: var(--radius-pill);
+      background: #16a34a;
+      color: #f0fdf4;
+      font-weight: 500;
+      font-size: 0.85rem;
+      box-shadow: 0 12px 26px rgba(22, 163, 74, 0.45);
+      border: 1px solid rgba(22, 163, 74, 0.9);
+    }
+
+    .download-link i {
+      font-size: 0.9rem;
+    }
+
+    .camera-block {
+      margin-top: 0.75rem;
+      border-top: 1px dashed rgba(209, 213, 219, 0.9);
+      padding-top: 0.75rem;
+    }
+
+    .camera-block-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .camera-container {
+      margin-top: 0.5rem;
+    }
+
+    #video {
+      max-width: 100%;
+      border-radius: 18px;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      background: #020617;
+      display: none;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.45);
+    }
+
+    /* Map container styled as a card element */
+    #mapContainer {
+      border-radius: 18px;
+      border: 1px solid var(--border-subtle);
+      width: 100%;
+      max-width: 900px;
+      height: 320px;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at top, #fef3c7, #fff7ed 45%, #f3f4f6 100%);
+      margin-top: 0.75rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    /* Square selector */
+    #selector {
+      width: 200px;
+      height: 200px;
+      border: 2px dashed rgba(249, 115, 22, 0.95);
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      cursor: move;
+      background: rgba(255, 247, 237, 0.08);
+      box-sizing: border-box;
+      z-index: 500;
+      border-radius: 14px;
+      box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.35);
+    }
+
+    /* Snip preview */
+    #snippetPreviewImg {
+      width: 200px;
+      height: 200px;
+      border-radius: 18px;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      background: #f9fafb;
+      margin-top: 0.75rem;
+      object-fit: cover;
+      display: block;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.14);
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(209, 213, 219, 0.9);
+      padding: 1.25rem 1.25rem 0;
+      max-width: 1120px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    footer span:last-child {
+      opacity: 0.9;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 960px) {
+      .nav-links {
+        display: none;
+      }
+      .nav {
+        gap: 0.6rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .tool-card {
+        padding: 1.3rem 1.1rem 1.4rem;
+      }
+      #mapContainer {
+        height: 260px;
+      }
+      button {
+        width: 100%;
+        justify-content: center;
+        margin-right: 0;
+      }
+    }
+  </style>
+
+  <!-- piexifjs for EXIF read/write -->
+  <script src="https://cdn.jsdelivr.net/npm/piexifjs"></script>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- html2canvas for DOM snapshot -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+
+<body>
+  <!-- Header styled like vikrantsharma.in -->
+  <header>
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="nav-logo-circle">VS</div>
+        <div class="nav-title">
+          <span class="nav-title-main">Geo-Tagged Photo Generator</span>
+          <span class="nav-title-sub">Map Snip &amp; EXIF Embedding Tool</span>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#upload">Upload</a>
+        <a href="#location">Location</a>
+        <a href="#preview">Map Snip</a>
+        <a href="#generate">Generate</a>
+      </div>
+
+      <div class="nav-actions">
+        <span class="nav-pill">
+          <i class="fa-regular fa-circle-check"></i>
+          Client-side only
+        </span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="section-header">
+      <h2 class="section-title">
+        <span></span> Geo-Tagged Photo Generator
+      </h2>
+      <p class="section-subtitle">
+        Capture a photo, select a map region, and generate a geo-tagged JPEG with EXIF data.
+      </p>
+    </div>
+
+    <div class="tool-card">
+      <!-- 1. Upload / capture image -->
+      <section class="tool-section" id="upload">
+        <h3>1. Choose or click a photo</h3>
+        <p class="info">
+          Use an existing <strong>JPEG</strong> image or click a new one using your device camera.
+        </p>
+
+        <label for="photoInput">Upload from device</label>
+        <input
+          type="file"
+          id="photoInput"
+          accept="image/jpeg,image/jpg,image/*"
+          capture="environment"
+        />
+
+        <div class="camera-block">
+          <div class="camera-block-title">Or use camera</div>
+          <button id="startCameraBtn" type="button">
+            <i class="fa-solid fa-camera"></i>
+            Start camera
+          </button>
+          <button id="captureBtn" type="button" disabled>
+            <i class="fa-regular fa-square"></i>
+            Capture photo
+          </button>
+          <div class="camera-container">
+            <video id="video" autoplay playsinline></video>
+          </div>
+        </div>
+
+        <img id="preview" class="preview" alt="Image preview will appear here" />
+        <div id="fileInfo" class="info"></div>
+      </section>
+
+      <!-- 2. Location & map with selector -->
+      <section class="tool-section" id="location">
+        <h3>2. Set location &amp; select map area</h3>
+        <p class="info">
+          Move/zoom the map, drag the <strong>square selector</strong>, then click
+          <strong>Capture Map Snip</strong>. The captured snip will be used on the photo.
+        </p>
+        <div class="row">
+          <div class="col">
+            <label for="latitude">Latitude</label>
+            <input type="number" id="latitude" step="0.000001" />
+          </div>
+          <div class="col">
+            <label for="longitude">Longitude</label>
+            <input type="number" id="longitude" step="0.000001" />
+          </div>
+        </div>
+        <button id="getLocationBtn" type="button" class="secondary">
+          <i class="fa-solid fa-location-crosshairs"></i>
+          Use my current location
+        </button>
+        <div id="locationStatus" class="status"></div>
+
+        <div id="mapContainer">
+          <div id="map"></div>
+          <div id="selector"></div>
+        </div>
+        <div class="info" id="mapInfo">
+          Click on the map or drag the orange square. Then press <strong>Capture Map Snip</strong>.
+        </div>
+
+        <button id="captureSnipBtn" type="button" class="primary">
+          <i class="fa-solid fa-crop"></i>
+          Capture Map Snip
+        </button>
+      </section>
+
+      <!-- 3. Map snip preview -->
+      <section class="tool-section" id="preview">
+        <h3>3. Map snip preview</h3>
+        <p class="info">
+          This exact square will appear on the <strong>left</strong> of the geo-tag details on the photo.
+        </p>
+        <img id="snippetPreviewImg" alt="Selected map snippet preview" />
+      </section>
+
+      <!-- 4. Date / address -->
+      <section class="tool-section">
+        <h3>4. Date, time &amp; address</h3>
+        <div class="row">
+          <div class="col">
+            <label for="datetime">Date &amp; Time</label>
+            <input type="datetime-local" id="datetime" />
+            <button id="nowBtn" type="button" class="secondary">
+              <i class="fa-regular fa-clock"></i>
+              Use current date &amp; time
+            </button>
+          </div>
+          <div class="col">
+            <label for="address">Address (optional)</label>
+            <textarea
+              id="address"
+              rows="3"
+              placeholder="House / Street, Area, City, State, Country"
+            ></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Generate -->
+      <section class="tool-section" id="generate">
+        <h3>5. Generate geo-tagged image</h3>
+        <p class="info">
+          This will:
+          <br />• Embed GPS + date/time + address into <strong>EXIF</strong>
+          <br />• Draw the <strong>captured map snip</strong> on the left and details on the right
+        </p>
+        <button id="generateBtn" type="button" class="primary" disabled>
+          <i class="fa-regular fa-image"></i>
+          Generate Geo-Tagged Photo
+        </button>
+        <div id="generateStatus" class="status"></div>
+        <a id="downloadLink" class="download-link" style="display:none;">
+          <i class="fa-regular fa-circle-down"></i>
+          Download geo-tagged image
+        </a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <span>Geo-Tagged Photo Generator – Static, client-side tool (no images uploaded to any server).</span>
+    <span>&copy; <script>document.write(new Date().getFullYear());</script> Dr. Vikrant Sharma</span>
+  </footer>
+
+  <script>
+    const photoInput = document.getElementById("photoInput");
+    const preview = document.getElementById("preview");
+    const fileInfo = document.getElementById("fileInfo");
+    const latitudeInput = document.getElementById("latitude");
+    const longitudeInput = document.getElementById("longitude");
+    const getLocationBtn = document.getElementById("getLocationBtn");
+    const locationStatus = document.getElementById("locationStatus");
+    const generateBtn = document.getElementById("generateBtn");
+    const generateStatus = document.getElementById("generateStatus");
+    const downloadLink = document.getElementById("downloadLink");
+    const startCameraBtn = document.getElementById("startCameraBtn");
+    const captureBtn = document.getElementById("captureBtn");
+    const video = document.getElementById("video");
+    const datetimeInput = document.getElementById("datetime");
+    const nowBtn = document.getElementById("nowBtn");
+    const addressInput = document.getElementById("address");
+    const mapContainer = document.getElementById("mapContainer");
+    const selector = document.getElementById("selector");
+    const captureSnipBtn = document.getElementById("captureSnipBtn");
+    const snippetPreviewImg = document.getElementById("snippetPreviewImg");
+
+    let map = null;
+    let marker = null;
+    let mapInitialized = false;
+    let originalDataUrl = null;
+    let originalFileName = null;
+    let cameraStream = null;
+    let snippetDataUrl = null;
+
+    // ===== Utility helpers =====
+    function stopCamera() {
+      if (cameraStream) {
+        cameraStream.getTracks().forEach(t => t.stop());
+        cameraStream = null;
+      }
+      video.srcObject = null;
+      video.style.display = "none";
+      captureBtn.disabled = true;
+      startCameraBtn.textContent = "Start camera";
+    }
+
+    function degToDmsRational(deg) {
+      const abs = Math.abs(deg);
+      const d = Math.floor(abs);
+      const minFloat = (abs - d) * 60;
+      const m = Math.floor(minFloat);
+      const secFloat = (minFloat - m) * 60;
+      return [
+        [d, 1],
+        [m, 1],
+        [Math.round(secFloat * 100), 100]
+      ];
+    }
+
+    function pad2(n) {
+      return String(n).padStart(2, "0");
+    }
+
+    function wrapTextLines(ctx, text, maxWidth) {
+      const words = text.split(/\s+/);
+      const lines = [];
+      let current = "";
+      for (const word of words) {
+        const test = current ? current + " " + word : word;
+        if (ctx.measureText(test).width > maxWidth && current) {
+          lines.push(current);
+          current = word;
+        } else {
+          current = test;
+        }
+      }
+      if (current) lines.push(current);
+      return lines;
+    }
+
+    // ===== Leaflet map setup =====
+    function initLeafletMap(lat = 20, lon = 78, zoom = 4) {
+      if (mapInitialized) return;
+      if (typeof L === "undefined") {
+        console.warn("Leaflet not loaded; map disabled.");
+        return;
+      }
+      map = L.map("map").setView([lat, lon], zoom);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors"
+      }).addTo(map);
+      marker = L.marker([lat, lon]).addTo(map);
+
+      map.on("click", e => {
+        const lat = e.latlng.lat;
+        const lon = e.latlng.lng;
+        latitudeInput.value = lat.toFixed(6);
+        longitudeInput.value = lon.toFixed(6);
+        setMapPosition(lat, lon);
+      });
+
+      mapInitialized = true;
+    }
+
+    function setMapPosition(lat, lon) {
+      if (!mapInitialized || !map) return;
+      map.setView([lat, lon], map.getZoom() || 16);
+      if (marker) marker.setLatLng([lat, lon]);
+    }
+
+    initLeafletMap();
+
+    // ===== Square selector drag logic =====
+    (function makeSelectorDraggable() {
+      let dragging = false, startX, startY, initialLeft, initialTop;
+
+      selector.addEventListener("mousedown", function(e) {
+        dragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+
+        const rect = selector.getBoundingClientRect();
+        const contRect = mapContainer.getBoundingClientRect();
+
+        initialLeft = rect.left - contRect.left;
+        initialTop = rect.top - contRect.top;
+        e.preventDefault();
+      });
+
+      document.addEventListener("mousemove", function(e) {
+        if (!dragging) return;
+
+        let x = initialLeft + (e.clientX - startX);
+        let y = initialTop + (e.clientY - startY);
+
+        x = Math.max(0, Math.min(x, mapContainer.offsetWidth - selector.offsetWidth));
+        y = Math.max(0, Math.min(y, mapContainer.offsetHeight - selector.offsetHeight));
+
+        selector.style.left = x + "px";
+        selector.style.top = y + "px";
+      });
+
+      document.addEventListener("mouseup", () => dragging = false);
+    })();
+
+    // ===== Capture Map Snip (html2canvas) =====
+    captureSnipBtn.addEventListener("click", () => {
+      if (!mapInitialized) {
+        alert("Map not ready yet.");
+        return;
+      }
+
+      // Optional: update lat/lon based on selector center for EXIF
+      const contRect = mapContainer.getBoundingClientRect();
+      const selRect = selector.getBoundingClientRect();
+      if (map && map.containerPointToLatLng) {
+        const centerX = selRect.left - contRect.left + selRect.width / 2;
+        const centerY = selRect.top - contRect.top + selRect.height / 2;
+        const latLng = map.containerPointToLatLng([centerX, centerY]);
+        latitudeInput.value = latLng.lat.toFixed(6);
+        longitudeInput.value = latLng.lng.toFixed(6);
+      }
+
+      html2canvas(mapContainer, { useCORS: true }).then(canvas => {
+        const contRect2 = mapContainer.getBoundingClientRect();
+        const selRect2 = selector.getBoundingClientRect();
+
+        const scaleX = canvas.width / contRect2.width;
+        const scaleY = canvas.height / contRect2.height;
+
+        const sx = (selRect2.left - contRect2.left) * scaleX;
+        const sy = (selRect2.top - contRect2.top) * scaleY;
+        const sWidth = selRect2.width * scaleX;
+        const sHeight = selRect2.height * scaleY;
+
+        const snipCanvas = document.createElement("canvas");
+        snipCanvas.width = sWidth;
+        snipCanvas.height = sHeight;
+
+        snipCanvas.getContext("2d").drawImage(
+          canvas,
+          sx, sy, sWidth, sHeight,
+          0, 0, sWidth, sHeight
+        );
+
+        const dataUrl = snipCanvas.toDataURL("image/png");
+        snippetPreviewImg.src = dataUrl;
+        snippetDataUrl = dataUrl;
+      }).catch(err => {
+        console.error(err);
+        alert("Unable to capture map snip (likely due to CORS on map tiles).");
+      });
+    });
+
+    // ===== File upload / camera =====
+    photoInput.addEventListener("change", () => {
+      const file = photoInput.files[0];
+      generateStatus.textContent = "";
+      downloadLink.style.display = "none";
+      originalDataUrl = null;
+      stopCamera();
+
+      if (!file) {
+        preview.src = "";
+        fileInfo.textContent = "";
+        generateBtn.disabled = true;
+        return;
+      }
+
+      if (!file.type.match(/jpeg|jpg/i)) {
+        fileInfo.textContent = "Please choose a JPEG image. Other formats may not work.";
+      } else {
+        fileInfo.textContent = `File: ${file.name} (${Math.round(file.size / 1024)} KB)`;
+      }
+
+      originalFileName = file.name || "photo.jpg";
+      const reader = new FileReader();
+      reader.onload = e => {
+        originalDataUrl = e.target.result;
+        preview.src = originalDataUrl;
+        generateBtn.disabled = false;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    startCameraBtn.addEventListener("click", async () => {
+      if (cameraStream) {
+        stopCamera();
+        return;
+      }
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        alert("Camera is not supported in this browser.");
+        return;
+      }
+      try {
+        cameraStream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: "environment" },
+          audio: false
+        });
+        video.srcObject = cameraStream;
+        video.style.display = "block";
+        captureBtn.disabled = false;
+        startCameraBtn.textContent = "Stop camera";
+        fileInfo.textContent = "Camera started. Click 'Capture photo' to take a picture.";
+      } catch (err) {
+        console.error(err);
+        alert("Unable to access camera: " + err.message);
+      }
+    });
+
+    captureBtn.addEventListener("click", () => {
+      if (!cameraStream) return;
+      const trackSettings = cameraStream.getVideoTracks()[0].getSettings();
+      const width = trackSettings.width || video.videoWidth || 1280;
+      const height = trackSettings.height || video.videoHeight || 720;
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(video, 0, 0, width, height);
+      originalDataUrl = canvas.toDataURL("image/jpeg", 0.92);
+      originalFileName = "camera_photo.jpg";
+      preview.src = originalDataUrl;
+      fileInfo.textContent = "Photo captured from camera.";
+      generateBtn.disabled = false;
+      downloadLink.style.display = "none";
+      generateStatus.textContent = "";
+      stopCamera();
+    });
+
+    // ===== GPS button =====
+    getLocationBtn.addEventListener("click", () => {
+      locationStatus.textContent = "";
+      locationStatus.className = "status";
+
+      if (!navigator.geolocation) {
+        locationStatus.textContent =
+          "Geolocation is not supported by this browser.";
+        locationStatus.classList.add("error");
+        return;
+      }
+
+      locationStatus.textContent = "Getting current location...";
+      navigator.geolocation.getCurrentPosition(
+        pos => {
+          const lat = pos.coords.latitude;
+          const lon = pos.coords.longitude;
+          latitudeInput.value = lat.toFixed(6);
+          longitudeInput.value = lon.toFixed(6);
+          locationStatus.textContent = `Location set: ${lat.toFixed(6)}, ${lon.toFixed(6)}`;
+          locationStatus.classList.add("ok");
+          setMapPosition(lat, lon);
+        },
+        err => {
+          locationStatus.textContent = "Unable to get location: " + err.message;
+          locationStatus.classList.add("error");
+        },
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+      );
+    });
+
+    // ===== Date/time helper =====
+    nowBtn.addEventListener("click", () => {
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm = pad2(now.getMonth() + 1);
+      const dd = pad2(now.getDate());
+      const hh = pad2(now.getHours());
+      const mi = pad2(now.getMinutes());
+      datetimeInput.value = `${yyyy}-${mm}-${dd}T${hh}:${mi}`;
+    });
+
+    // ===== Generate final geo-tagged image =====
+    generateBtn.addEventListener("click", () => {
+      generateStatus.textContent = "";
+      generateStatus.className = "status";
+      downloadLink.style.display = "none";
+
+      if (!originalDataUrl) {
+        generateStatus.textContent = "Please choose or capture a photo first.";
+        generateStatus.classList.add("error");
+        return;
+      }
+      if (!snippetDataUrl) {
+        generateStatus.textContent = "Please click 'Capture Map Snip' first.";
+        generateStatus.classList.add("error");
+        return;
+      }
+
+      const lat = parseFloat(latitudeInput.value);
+      const lon = parseFloat(longitudeInput.value);
+      if (Number.isNaN(lat) || Number.isNaN(lon)) {
+        generateStatus.textContent =
+          "Please provide valid latitude and longitude values.";
+        generateStatus.classList.add("error");
+        return;
+      }
+
+      const dtValue = datetimeInput.value;
+      let exifDateTimeStr = null;
+      let dateText = "";
+      let timeText = "";
+      if (dtValue) {
+        const [datePart, timePart] = dtValue.split("T");
+        if (datePart) dateText = "Date: " + datePart;
+        if (timePart) timeText = "Time: " + timePart;
+        const d = new Date(dtValue);
+        if (!isNaN(d.getTime())) {
+          const yyyy = d.getFullYear();
+          const mm = pad2(d.getMonth() + 1);
+          const dd = pad2(d.getDate());
+          const hh = pad2(d.getHours());
+          const mi = pad2(d.getMinutes());
+          const ss = pad2(d.getSeconds());
+          exifDateTimeStr = `${yyyy}:${mm}:${dd} ${hh}:${mi}:${ss}`;
+        }
+      }
+
+      const address = addressInput.value.trim();
+      generateStatus.textContent = "Processing image, map and EXIF data...";
+
+      const img = new Image();
+      img.onload = () => {
+        try {
+          const canvas = document.createElement("canvas");
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0);
+
+          const padding = Math.round(canvas.width * 0.02);
+          const fontSize = Math.max(20, Math.round(canvas.width * 0.025));
+          ctx.font = fontSize + "px system-ui, sans-serif";
+
+          const lines = [];
+          lines.push("Lat: " + lat.toFixed(6));
+          lines.push("Lon: " + lon.toFixed(6));
+          if (dateText) lines.push(dateText);
+          if (timeText) lines.push(timeText);
+
+          let mapWidth = Math.round(canvas.width * 0.18);
+          if (mapWidth < 80) mapWidth = 80;
+          if (mapWidth > 260) mapWidth = 260;
+          const mapHeight = mapWidth; // square
+
+          const textMaxWidth = Math.max(
+            100,
+            canvas.width * 0.75 - mapWidth - padding * 3
+          );
+          if (address) {
+            const addrLines = wrapTextLines(
+              ctx,
+              "Address: " + address,
+              textMaxWidth
+            );
+            // push wrapped address lines one by one
+            for (const l of addrLines) {
+              lines.push(l);
+            }
+          }
+
+          const lineHeight = fontSize * 1.2;
+          let textWidth = 0;
+          for (const line of lines) {
+            textWidth = Math.max(textWidth, ctx.measureText(line).width);
+          }
+          textWidth = Math.min(textWidth, textMaxWidth);
+
+          const boxWidth = mapWidth + padding * 3 + textWidth;
+          const boxHeight =
+            Math.max(lines.length * lineHeight, mapHeight) + padding * 2;
+          const x = padding;
+          const y = canvas.height - boxHeight - padding;
+
+          function finishWithSnippetImage(snippetImg) {
+            ctx.fillStyle = "rgba(0,0,0,0.5)";
+            ctx.fillRect(x, y, boxWidth, boxHeight);
+
+            const mapX = x + padding;
+            const mapY = y + (boxHeight - mapHeight) / 2;
+            ctx.drawImage(snippetImg, mapX, mapY, mapWidth, mapHeight);
+
+            ctx.fillStyle = "white";
+            ctx.font = fontSize + "px system-ui, sans-serif";
+            let textY = y + padding + fontSize;
+            const textX = x + padding * 2 + mapWidth;
+            for (const line of lines) {
+              ctx.fillText(line, textX, textY);
+              textY += lineHeight;
+            }
+
+            const overlayedDataUrl = canvas.toDataURL("image/jpeg", 0.92);
+
+            const exifObj = {
+              "0th": {},
+              "Exif": {},
+              "GPS": {},
+              "Interop": {},
+              "1st": {},
+              "thumbnail": null
+            };
+            const gps = exifObj["GPS"];
+            gps[piexif.GPSIFD.GPSLatitudeRef] = lat >= 0 ? "N" : "S";
+            gps[piexif.GPSIFD.GPSLatitude] = degToDmsRational(lat);
+            gps[piexif.GPSIFD.GPSLongitudeRef] = lon >= 0 ? "E" : "W";
+            gps[piexif.GPSIFD.GPSLongitude] = degToDmsRational(lon);
+            exifObj["GPS"] = gps;
+
+            if (exifDateTimeStr) {
+              exifObj["0th"][piexif.ImageIFD.DateTime] = exifDateTimeStr;
+              exifObj["Exif"][piexif.ExifIFD.DateTimeOriginal] = exifDateTimeStr;
+              exifObj["Exif"][piexif.ExifIFD.DateTimeDigitized] = exifDateTimeStr;
+            }
+            if (address) {
+              exifObj["0th"][piexif.ImageIFD.ImageDescription] = address;
+            }
+
+            const exifBytes = piexif.dump(exifObj);
+            const finalDataUrl = piexif.insert(exifBytes, overlayedDataUrl);
+
+            preview.src = finalDataUrl;
+            downloadLink.href = finalDataUrl;
+            downloadLink.download =
+              "geotagged_" + (originalFileName || "photo.jpg").replace(/\s+/g, "_");
+            downloadLink.style.display = "inline-flex";
+
+            generateStatus.textContent =
+              "Geo-tagging complete. Captured map snip + details are printed on the image and stored in EXIF.";
+            generateStatus.classList.add("ok");
+          }
+
+          const snippetImg = new Image();
+          snippetImg.onload = () => finishWithSnippetImage(snippetImg);
+          snippetImg.onerror = () => {
+            generateStatus.textContent =
+              "Error using map snippet; please capture it again.";
+            generateStatus.classList.add("error");
+          };
+          snippetImg.src = snippetDataUrl;
+        } catch (e) {
+          console.error(e);
+          generateStatus.textContent = "Error processing image: " + e.message;
+          generateStatus.classList.add("error");
+        }
+      };
+      img.onerror = () => {
+        generateStatus.textContent = "Error loading image for processing.";
+        generateStatus.classList.add("error");
+      };
+      img.src = originalDataUrl;
+    });
+  </script>
+</body>
+</html>
 
