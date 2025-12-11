@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tools — Dr. Vikrant Sharma</title>
+
+  <!-- Match site typography and icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <meta name="description" content="A single place to access Dr. Vikrant Sharma's web tools." />
+  <link rel="icon" href="/favicon.ico" />
+
+  <style>
+    /* ====== Colors & spacing matched to https://www.vikrantsharma.in/ ====== */
+    :root{
+      --brand:#ff7a00; /* replaced blue with site orange */ /* primary blue used on site */
+      --brand-dark:#e56700; /* darker orange variant */
+      --bg:#ffffff;
+      --page-bg:#f6f7fb;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --radius:10px;
+      --max-width:1100px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:var(--page-bg);color:#111}
+
+    /* Topbar closely mirrors the academic site - simple left brand, right quick links */
+    .topbar{
+      background:var(--bg);
+      border-bottom:1px solid rgba(12,18,30,0.04);
+      padding:18px 20px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:40
+    }
+    .brand{display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit}
+    .brand-logo{width:46px;height:46px;border-radius:8px;background:linear-gradient(180deg,var(--brand),var(--brand-dark));display:grid;place-items:center;font-weight:700;color:white}
+    .brand h1{font-size:16px;margin:0;line-height:1;font-weight:600}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    .container{max-width:var(--max-width);margin:28px auto;padding:0 20px}
+
+    /* Hero / page heading consistent with site hierarchy */
+    .hero{display:flex;align-items:center;justify-content:space-between;gap:16px;background:transparent;margin-bottom:18px}
+    .hero-left h2{margin:0 0 6px;font-size:22px;font-weight:600}
+    .hero-left p{margin:0;color:var(--muted)}
+
+    /* Controls - search and tags styled to match site aesthetics */
+    .controls{display:flex;gap:12px;align-items:center}
+    .search{display:flex;align-items:center;background:#fff;padding:10px 12px;border-radius:999px;box-shadow:0 6px 18px rgba(10,20,40,0.04);min-width:240px}
+    .search input{border:0;outline:none;font-size:14px;background:transparent;margin-left:8px}
+
+    .tag-filter{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted);cursor:pointer}
+    .tag.active{background:var(--brand);color:white;border-color:var(--brand)}
+
+    /* Grid of tool cards - subtle, academic feel */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+
+    .card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(10,20,40,0.04);text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:12px;transition:transform .18s,box-shadow .18s}
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 50px rgba(10,20,40,0.08)}
+
+    .card .meta{display:flex;align-items:center;gap:14px}
+    .icon-wrap{width:56px;height:56px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(180deg,rgba(0,91,187,0.08),rgba(0,91,187,0.02))}
+    .material-icons.icon{font-size:28px;color:var(--brand)}
+
+    .card h3{margin:0;font-size:16px;font-weight:600}
+    .card p{margin:0;color:var(--muted);font-size:13px}
+
+    .card .foot{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+    .kbd{font-family:monospace;background:#f3f4f6;padding:6px 8px;border-radius:8px;font-size:12px;color:#374151}
+
+    footer{max-width:var(--max-width);margin:36px auto 70px;padding:0 20px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* small screens */
+    @media (max-width:700px){
+      .hero{flex-direction:column;align-items:flex-start}
+      .search{min-width:160px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top navigation bar linking to your main site -->
+  <header class="topbar">
+    <a class="brand" href="https://www.vikrantsharma.in/" target="_self">
+      <div class="brand-logo">VS</div>
+      <div>
+        <h1 style="font-size:16px;margin-bottom:2px">Dr. Vikrant Sharma</h1>
+        <p style="font-size:12px;margin:0">Senior Member IEEE • Researcher</p>
+      </div>
+    </a>
+
+    <nav style="margin-left:24px;display:flex;gap:12px;font-size:13px;color:var(--muted)">
+      <a href="/" style="text-decoration:none;color:inherit;opacity:0.9">About</a>
+      <a href="/research" style="text-decoration:none;color:inherit;opacity:0.9">Research</a>
+      <a href="/publications" style="text-decoration:none;color:inherit;opacity:0.9">Publications</a>
+      <a href="/tools" style="text-decoration:none;color:var(--brand);font-weight:600">Tools</a>
+    </nav>
+
+    <div style="margin-left:auto;color:var(--muted);font-size:13px">Academic Profile • Teaching • Resources</div>
+  </header>
+
+  <main class="container">
+    <div class="hero">
+      <div class="hero-left">
+        <h2>All Tools</h2>
+        <p></p>
+      </div>
+
+      <div class="controls">
+        <div class="search" role="search">
+          <span class="material-icons" aria-hidden>search</span>
+          <input id="q" placeholder="Search tools..." aria-label="Search tools" />
+        </div>
+        <div class="tag-filter" id="tagFilter">
+          <button class="tag" data-tag="all">All</button>
+          <button class="tag" data-tag="image">Images</button>
+          <button class="tag" data-tag="data">Data</button>
+          <button class="tag" data-tag="misc">Misc</button>
+        </div>
+      </div>
+    </div>
+
+    <section class="grid" id="toolsGrid">
+
+      <!-- Tool cards - edit hrefs to your actual tool URLs -->
+
+      <a class="card" href="/tools/geotagger/index.html" data-title="Geo-Tagger" data-tags="image">
+        <div class="meta">
+          <div class="icon-wrap"><span class="material-icons icon">location_on</span></div>
+          <div>
+            <h3>Geo-Tagger</h3>
+            <p>Add GPS metadata to photos & download geo-tagged images.</p>
+          </div>
+        </div>
+        <div class="foot">
+          <div class="kbd">Open</div>
+          <div style="font-size:12px;color:var(--muted)">Updated • 2025</div>
+        </div>
+      </a>
+
+      <a class="card" href="/tools/marks-uploader/index.html" data-title="Marks Uploader" data-tags="data">
+        <div class="meta">
+          <div class="icon-wrap"><span class="material-icons icon">upload_file</span></div>
+          <div>
+            <h3>Marks Uploader</h3>
+            <p>Upload and manage student marks from CSV or Excel files.</p>
+          </div>
+        </div>
+        <div class="foot">
+          <div class="kbd">Open</div>
+          <div style="font-size:12px;color:var(--muted)">v1.2</div>
+        </div>
+      </a>
+
+      <a class="card" href="/tools/qr-generator/index.html" data-title="QR Generator" data-tags="misc">
+        <div class="meta">
+          <div class="icon-wrap"><span class="material-icons icon">qr_code</span></div>
+          <div>
+            <h3>QR Generator</h3>
+            <p>Create QR codes for URLs, text and contact data.</p>
+          </div>
+        </div>
+        <div class="foot">
+          <div class="kbd">Open</div>
+          <div style="font-size:12px;color:var(--muted)">New</div>
+        </div>
+      </a>
+
+      <a class="card" href="/tools/certificate-maker/index.html" data-title="Certificate Maker" data-tags="misc">
+        <div class="meta">
+          <div class="icon-wrap"><span class="material-icons icon">workspace_premium</span></div>
+          <div>
+            <h3>Certificate Maker</h3>
+            <p>Auto-generate PDF certificates for events and courses.</p>
+          </div>
+        </div>
+        <div class="foot">
+          <div class="kbd">Open</div>
+          <div style="font-size:12px;color:var(--muted)">v0.9</div>
+        </div>
+      </a>
+
+    </section>
+  </main>
+
+  <footer>
+    © <strong>Dr. Vikrant Sharma</strong> — <a href="https://www.vikrantsharma.in/" style="color:inherit;text-decoration:underline;">vikrantsharma.in</a>
+  </footer>
+
+  <script>
+    // Lightweight client-side search + tag filter
+    (function(){
+      const q = document.getElementById('q');
+      const grid = document.getElementById('toolsGrid');
+      const cards = Array.from(grid.querySelectorAll('.card'));
+      const tags = document.querySelectorAll('.tag');
+
+      function normalize(s){ return (s||'').toLowerCase(); }
+
+      function filter(){
+        const query = normalize(q.value);
+        const activeTag = document.querySelector('.tag.active')?.dataset?.tag || 'all';
+
+        cards.forEach(card=>{
+          const title = normalize(card.dataset.title);
+          const tags = normalize(card.dataset.tags);
+
+          const matchesQuery = !query || title.includes(query) || (card.querySelector('p') && normalize(card.querySelector('p').innerText).includes(query));
+          const matchesTag = activeTag === 'all' || tags.split(',').includes(activeTag);
+
+          card.style.display = (matchesQuery && matchesTag) ? '' : 'none';
+        });
+      }
+
+      q.addEventListener('input', filter);
+
+      tags.forEach(t=>{
+        t.addEventListener('click', ()=>{
+          tags.forEach(x=>x.classList.remove('active'));
+          t.classList.add('active');
+          filter();
+        });
+      });
+
+      document.querySelector('.tag[data-tag="all"]').classList.add('active');
+
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === '/'){
+          const active = document.activeElement;
+          if(active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) return;
+          e.preventDefault(); q.focus();
+        }
+      });
+
+    })();
+  </script>
+
+</body>
+</html>
