@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QR Code Generator | Dr. Vikrant Sharma</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- QR Code Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <style>
+    :root {
+      --orange: #f26a1b;
+      --slate: #1e293b;
+      --light-slate: #334155;
+      --bg: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--slate);
+    }
+
+    .container {
+      max-width: 520px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--light-slate);
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin-top: 20px;
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    .btn-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: 0.2s ease;
+    }
+
+    .primary {
+      background: var(--orange);
+      color: #fff;
+    }
+
+    .secondary {
+      background: var(--slate);
+      color: #fff;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    #qrBox {
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    #qrBox canvas,
+    #qrBox img {
+      padding: 12px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>QR Code Generator</h1>
+    <p>Generate, save, or share QR codes instantly</p>
+
+    <input type="text" id="urlInput" placeholder="Enter URL (https://...)">
+
+    <div class="btn-group">
+      <button class="primary" onclick="generateQR()">Generate</button>
+      <button class="secondary" onclick="downloadQR()">Save</button>
+      <button class="secondary" onclick="shareQR()">Share</button>
+    </div>
+
+    <div id="qrBox"></div>
+
+    <footer>
+      © Dr. Vikrant Sharma
+    </footer>
+  </div>
+
+  <script>
+    let qr;
+
+    function generateQR() {
+      const url = document.getElementById("urlInput").value.trim();
+      if (!url) {
+        alert("Please enter a URL");
+        return;
+      }
+
+      document.getElementById("qrBox").innerHTML = "";
+      qr = new QRCode(document.getElementById("qrBox"), {
+        text: url,
+        width: 220,
+        height: 220,
+        colorDark: "#1e293b",
+        colorLight: "#ffffff"
+      });
+    }
+
+    function downloadQR() {
+      const img = document.querySelector("#qrBox img");
+      if (!img) {
+        alert("Generate a QR code first");
+        return;
+      }
+
+      const link = document.createElement("a");
+      link.href = img.src;
+      link.download = "qr-code.png";
+      link.click();
+    }
+
+    async function shareQR() {
+      const img = document.querySelector("#qrBox img");
+      const url = document.getElementById("urlInput").value;
+
+      if (!img || !navigator.share) {
+        alert("Sharing not supported on this browser");
+        return;
+      }
+
+      const blob = await fetch(img.src).then(res => res.blob());
+      const file = new File([blob], "qr-code.png", { type: "image/png" });
+
+      navigator.share({
+        title: "QR Code",
+        text: "Scan this QR code",
+        files: [file],
+        url: url
+      });
+    }
+  </script>
+
+</body>
+</html>
