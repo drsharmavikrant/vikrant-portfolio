@@ -133,7 +133,7 @@
 </footer>
 
 <script>
-  fetch("data/events.json")
+  fetch("data/events/events.json")
     .then(res => res.json())
     .then(data => {
       renderEvents(data.upcoming, "upcomingEvents");
@@ -169,3 +169,4 @@
 
 </body>
 </html>
+
