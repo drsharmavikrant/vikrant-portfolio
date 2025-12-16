@@ -29,7 +29,15 @@
       "date": "15-16 November 2024",
       "location": "GEHU Dehradun",
       "icon": "school"
+    },
+      {
+      "title": "International Conference on Automation and Computation (Autocom-22)",
+      "description": "www.autocom.org.in/2022",
+      "date": "Decmber 2022",
+      "location": "GEHU Dehradun",
+      "icon": "school"
     }
   ]
 }
+
 
