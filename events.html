@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Events — Dr. Vikrant Sharma</title>
+
+  <!-- Typography & icons (same as tools page) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    :root{
+      --brand:#ff7a00;
+      --brand-dark:#e56700;
+      --bg:#ffffff;
+      --page-bg:#f6f7fb;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --radius:10px;
+      --max-width:1100px;
+      font-family:'Inter',system-ui;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--page-bg);color:#111}
+
+    /* ===== NAVBAR (UNCHANGED) ===== */
+    .topbar{
+      background:var(--bg);
+      border-bottom:1px solid rgba(12,18,30,0.04);
+      padding:18px 20px;
+      display:flex;
+      align-items:center;
+      gap:16px;
+      position:sticky;
+      top:0;
+      z-index:40
+    }
+    .brand{display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit}
+    .brand-logo{width:46px;height:46px;border-radius:8px;background:linear-gradient(180deg,var(--brand),var(--brand-dark));display:grid;place-items:center;font-weight:700;color:white}
+    .brand h1{font-size:16px;margin:0}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    .container{max-width:var(--max-width);margin:28px auto;padding:0 20px}
+
+    .hero h2{margin:0 0 6px;font-size:22px;font-weight:600}
+    .hero p{margin:0;color:var(--muted)}
+
+    .section-title{
+      margin:26px 0 14px;
+      font-size:18px;
+      font-weight:600;
+      border-left:4px solid var(--brand);
+      padding-left:12px
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:20px
+    }
+
+    .card{
+      background:var(--card);
+      padding:18px;
+      border-radius:var(--radius);
+      box-shadow:0 6px 20px rgba(10,20,40,0.04);
+      display:flex;
+      flex-direction:column;
+      gap:12px
+    }
+
+    .meta{display:flex;gap:14px}
+    .icon-wrap{
+      width:56px;height:56px;border-radius:10px;
+      display:grid;place-items:center;
+      background:linear-gradient(180deg,rgba(255,122,0,.12),rgba(255,122,0,.03))
+    }
+    .material-icons{font-size:28px;color:var(--brand)}
+
+    .card h3{margin:0;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:13px}
+
+    .foot{
+      display:flex;
+      justify-content:space-between;
+      font-size:12px;
+      color:var(--muted)
+    }
+
+    footer{
+      max-width:var(--max-width);
+      margin:36px auto 60px;
+      padding:0 20px;
+      text-align:center;
+      font-size:13px;
+      color:var(--muted)
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <div class="brand-logo">VS</div>
+    <div>
+      <h1>Dr. Vikrant Sharma</h1>
+      <p>Senior Member IEEE • Researcher</p>
+    </div>
+  </a>
+</header>
+
+<main class="container">
+
+  <div class="hero">
+    <h2>Events</h2>
+    <p>Workshops, FDPs, seminars, and academic engagements</p>
+  </div>
+
+  <!-- UPCOMING -->
+  <div class="section-title">Upcoming Events</div>
+  <section class="grid" id="upcomingEvents"></section>
+
+  <!-- PAST -->
+  <div class="section-title">Past Events</div>
+  <section class="grid" id="pastEvents"></section>
+
+</main>
+
+<footer>
+  © Dr. Vikrant Sharma — vikrantsharma.in
+</footer>
+
+<script>
+  fetch("data/events.json")
+    .then(res => res.json())
+    .then(data => {
+      renderEvents(data.upcoming, "upcomingEvents");
+      renderEvents(data.past, "pastEvents");
+    });
+
+  function renderEvents(events, containerId){
+    const container = document.getElementById(containerId);
+    container.innerHTML = "";
+
+    events.forEach(ev => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <div class="meta">
+          <div class="icon-wrap">
+            <span class="material-icons">${ev.icon || "event"}</span>
+          </div>
+          <div>
+            <h3>${ev.title}</h3>
+            <p>${ev.description}</p>
+          </div>
+        </div>
+        <div class="foot">
+          <span>${ev.date}</span>
+          <span>${ev.location || ""}</span>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+</script>
+
+</body>
+</html>
