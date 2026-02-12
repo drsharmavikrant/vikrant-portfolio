@@ -1,0 +1,64 @@
+{
+  "subjects": [
+    {
+      "title": "Theory of Computation",
+      "code": "TOC",
+      "description": "",
+      "units": [
+        {
+          "title": "Unit 1: Introduction; Alphabets, Strings and Languages; Automata and Grammars, Deterministic finite Automata (DFA)- Formal Definition, Simplified notation: State transition graph, Transition table, Language of DFA, Nondeterministic finite Automata (NFA), NFA with epsilon transition, Language of NFA, Equivalence of NFA and DFA, Minimization of Finite Automata, Distinguishing one string from other, Myhill-Nerode Theorem ",
+          "link": "#",
+          "images": [
+            "images/TOC/Unit1/AUTOMATA_NOTES_UNIT_1_page-0001.jpg",
+            "images/TOC/Unit1/AUTOMATA_NOTES_UNIT_1_page-0002.jpg",
+            "images/TOC/Unit1/AUTOMATA_NOTES_UNIT_1_page-0003.jpg",
+            "images/TOC/Unit1/AUTOMATA_NOTES_UNIT_1_page-0004.jpg",
+            "images/TOC/Unit1/AUTOMATA_NOTES_UNIT_1_page-0005.jpg",
+            "images/TOC/Unit1/AUTOMATA_NOTES_UNIT_1_page-0006.jpg",
+            "images/TOC/Unit1/AUTOMATA_NOTES_UNIT_1_page-0007.jpg",
+            "images/TOC/Unit1/AUTOMATA_NOTES_UNIT_1_page-0008.jpg",
+            "images/TOC/Unit1/AUTOMATA_NOTES_UNIT_1_page-0009.jpg",
+            "images/TOC/Unit1/AUTOMATA_NOTES_UNIT_1_page-0010.jpg",
+            "images/TOC/Unit1/AUTOMATA_NOTES_UNIT_1_page-0011.jpg",
+            "images/TOC/Unit1/AUTOMATA_NOTES_UNIT_1_page-0012.jpg",
+            "images/TOC/Unit1/AUTOMATA_NOTES_UNIT_1_page-0013.jpg",
+            "images/TOC/Unit1/AUTOMATA_NOTES_UNIT_1_page-0014.jpg",
+            "images/TOC/Unit1/AUTOMATA_NOTES_UNIT_1_page-0015.jpg"
+          ]
+        },
+        {
+          "title": "Unit 2: Regular Languages and Regular Expressions, Regular Languages, Regular Expressions, Relationship between Regular Languages and Regular Expressions, Closure Properties of Regular Languages, Pumping Lemma for Regular Languages, Decision Problems for Regular Languages ",
+          "link": "#",
+          "images": [
+            "images/TOC/Unit2/page1.jpg",
+            "images/TOC/Unit2/page2.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Computer Networks-2",
+      "code": "CN-2",
+      "description": "",
+      "units": [
+        {
+          "title": "Unit 1: Routing Algorithms: Introduction, global vs decentralized routing, The Link State(LS) Routing Algorithm, The Distance Vector (DV) Routing Algorithm, Hierarchical Routing, Routing in the Internet: RIP, OSPF, BGP; Introduction to Broadcast and Multicast Routing",
+          "link": "#",
+          "images": [
+            "images/CN2/Unit1/page1.jpg",
+            "images/CN2/Unit1/page2.jpg",
+            "images/CN2/Unit1/page3.jpg"
+          ]
+        },
+        {
+          "title": "Unit 2: Link Layer and Local Area Networks: Introduction to Link Layer and its services, Where Link Layer is implemented?, Error detection and correction techniques: Parity checks, Checksumming, CRC; Multiple Access protocols: Channel Partitioning, Random Access (Slotted Aloha, Aloha, CSMA), Taking Turns; Link Layer Addressing: MAC addresses, ARP, Ethernet, CSMA/CD, Ethernet Technologies, Link Layer Switches, Switches vs Routers, VLANS",
+          "link": "#",
+          "images": [
+            "images/CN2/Unit2/page1.jpg",
+            "images/CN2/Unit2/page2.jpg"
+          ]
+        }
+      ]
+    }
+  ]
+}
