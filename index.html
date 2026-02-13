@@ -1908,9 +1908,9 @@
       if (!counterEl) return;
 
       try {
-        const res = await fetch('https://api.countapi.xyz/hit/drsharmavikrant-portfolio/visits');
+        const res = await fetch('https://api.counterapi.dev/v1/drsharmavikrant-portfolio/visits/up');
         const data = await res.json();
-        counterEl.innerText = data.value;
+        counterEl.innerText = data.count;
       } catch (err) {
         console.error('Visitor count error:', err);
         counterEl.innerText = 'N/A';
