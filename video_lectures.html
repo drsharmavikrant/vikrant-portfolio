@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Video Lectures | Dr. Vikrant Sharma</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Video lectures by Dr. Vikrant Sharma on topics like Algorithms, Machine Learning, Automata Theory, and more." />
+  <meta name="description"
+    content="Video lectures by Dr. Vikrant Sharma on topics like Algorithms, Machine Learning, Automata Theory, and more." />
 
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
 
   <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-wxM5H3ObXvX6k7lWcgo6SsxvPVf8jSRb2C3x63uLGB0y6b1m3s7pIVYpCplxVx6z+fQ3qM4d8Wi9uYVYJ6Lqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-wxM5H3ObXvX6k7lWcgo6SsxvPVf8jSRb2C3x63uLGB0y6b1m3s7pIVYpCplxVx6z+fQ3qM4d8Wi9uYVYJ6Lqw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
     :root {
@@ -19,11 +24,15 @@
       --bg-alt: #ffffff;
       --card: #ffffff;
 
-      --accent: #f97316;    /* bright orange */
-      --accent-2: #ea580c;  /* deeper orange */
+      --accent: #f97316;
+      /* bright orange */
+      --accent-2: #ea580c;
+      /* deeper orange */
 
-      --text: #111827;      /* almost black */
-      --muted: #4b5563;     /* slate grey */
+      --text: #111827;
+      /* almost black */
+      --muted: #4b5563;
+      /* slate grey */
 
       --border-subtle: rgba(148, 163, 184, 0.5);
       --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
@@ -411,7 +420,8 @@
     .video-frame-wrapper {
       position: relative;
       width: 100%;
-      padding-bottom: 56.25%; /* 16:9 */
+      padding-bottom: 56.25%;
+      /* 16:9 */
       border-radius: 16px;
       overflow: hidden;
       margin-top: 0.4rem;
@@ -434,7 +444,7 @@
       font-size: 0.85rem;
     }
 
-    .playlist-list li + li {
+    .playlist-list li+li {
       margin-top: 0.35rem;
     }
 
@@ -610,15 +620,19 @@
       header {
         background: rgba(245, 245, 246, 0.98);
       }
+
       body.dark-mode header {
         background: rgba(15, 23, 42, 0.98);
       }
+
       .nav-links {
         display: none;
       }
+
       .nav {
         gap: 0.6rem;
       }
+
       .hero {
         padding-top: 1.4rem;
       }
@@ -628,9 +642,11 @@
       .page {
         padding: 0 1rem 3.2rem;
       }
+
       .hero-title {
         font-size: 1.8rem;
       }
+
       .btn {
         width: 100%;
         justify-content: center;
@@ -638,6 +654,7 @@
     }
   </style>
 </head>
+
 <body>
   <header id="top">
     <nav class="nav">
@@ -652,7 +669,7 @@
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="#core">Core Subjects</a>
-        <a href="#ml">ML &amp; AI</a>
+        <!-- <a href="#ml">ML &amp; AI</a> -->
         <a href="#playlists">Playlists</a>
       </div>
 
@@ -707,202 +724,8 @@
       </div>
     </section>
 
-    <!-- CORE SUBJECTS -->
-    <section id="core" class="reveal">
-      <div class="section-header">
-        <h2 class="section-title">
-          <span></span> Core CSE Subjects
-        </h2>
-        <p class="section-subtitle">Algorithms, Automata Theory, Computer Graphics, DevOps</p>
-      </div>
-
-      <div class="grid-videos">
-        <!-- Video card 1 -->
-        <article class="video-card">
-          <h3 class="video-title">Introduction to Design &amp; Analysis of Algorithms</h3>
-          <p class="video-meta">
-            Course overview, importance of algorithmic thinking, and high-level classification of algorithms.
-          </p>
-          <div class="video-tags">
-            <span class="video-tag">B.Tech (CSE)</span>
-            <span class="video-tag">DAA</span>
-            <span class="video-tag">Foundations</span>
-          </div>
-          <div class="video-frame-wrapper">
-            <!-- Replace VIDEO_ID_1 with your actual YouTube ID -->
-            <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID_1"
-              title="DAA Introduction - Dr. Vikrant Sharma"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </article>
-
-        <!-- Video card 2 -->
-        <article class="video-card">
-          <h3 class="video-title">Time &amp; Space Complexity – Asymptotic Notations</h3>
-          <p class="video-meta">
-            Detailed explanation of Big-O, Big-Omega, and Big-Theta with examples and graphical intuition.
-          </p>
-          <div class="video-tags">
-            <span class="video-tag">Time Complexity</span>
-            <span class="video-tag">Asymptotic Notation</span>
-          </div>
-          <div class="video-frame-wrapper">
-            <!-- Replace VIDEO_ID_2 -->
-            <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID_2"
-              title="Time & Space Complexity - Dr. Vikrant Sharma"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </article>
-
-        <!-- Video card 3 -->
-        <article class="video-card">
-          <h3 class="video-title">Introduction to Automata Theory &amp; Formal Languages</h3>
-          <p class="video-meta">
-            Motivation for automata, language classes, and where DFA/NFA fit in the theory of computation.
-          </p>
-          <div class="video-tags">
-            <span class="video-tag">Automata Theory</span>
-            <span class="video-tag">Theory of Computation</span>
-          </div>
-          <div class="video-frame-wrapper">
-            <!-- Replace VIDEO_ID_3 -->
-            <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID_3"
-              title="Automata Theory Introduction - Dr. Vikrant Sharma"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </article>
-
-        <!-- Video card 4 -->
-        <article class="video-card">
-          <h3 class="video-title">DevOps Basics – CI/CD Pipeline Overview</h3>
-          <p class="video-meta">
-            High-level view of DevOps culture, tools, and a conceptual CI/CD pipeline for modern software engineering.
-          </p>
-          <div class="video-tags">
-            <span class="video-tag">DevOps</span>
-            <span class="video-tag">Software Engineering</span>
-          </div>
-          <div class="video-frame-wrapper">
-            <!-- Replace VIDEO_ID_4 -->
-            <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID_4"
-              title="DevOps Basics - Dr. Vikrant Sharma"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- MACHINE LEARNING & AI -->
-    <section id="ml" class="reveal">
-      <div class="section-header">
-        <h2 class="section-title">
-          <span></span> Machine Learning &amp; AI
-        </h2>
-        <p class="section-subtitle">From basic concepts to research-oriented topics</p>
-      </div>
-
-      <div class="grid-videos">
-        <!-- Video card 5 -->
-        <article class="video-card">
-          <h3 class="video-title">Introduction to Machine Learning</h3>
-          <p class="video-meta">
-            Definition of machine learning, types of learning (supervised, unsupervised, reinforcement),
-            and real-world application scenarios.
-          </p>
-          <div class="video-tags">
-            <span class="video-tag">Machine Learning</span>
-            <span class="video-tag">Overview</span>
-          </div>
-          <div class="video-frame-wrapper">
-            <!-- Replace VIDEO_ID_5 -->
-            <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID_5"
-              title="Introduction to Machine Learning - Dr. Vikrant Sharma"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </article>
-
-        <!-- Video card 6 -->
-        <article class="video-card">
-          <h3 class="video-title">Linear Regression – Concept, Cost Function &amp; Gradient Descent</h3>
-          <p class="video-meta">
-            Step-by-step derivation of linear regression, mean squared error, and gradient descent optimization
-            with intuitive geometric interpretation.
-          </p>
-          <div class="video-tags">
-            <span class="video-tag">Linear Regression</span>
-            <span class="video-tag">Gradient Descent</span>
-          </div>
-          <div class="video-frame-wrapper">
-            <!-- Replace VIDEO_ID_6 -->
-            <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID_6"
-              title="Linear Regression with Gradient Descent - Dr. Vikrant Sharma"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </article>
-
-        <!-- Video card 7 -->
-        <article class="video-card">
-          <h3 class="video-title">Classification Basics – Logistic Regression &amp; Decision Boundaries</h3>
-          <p class="video-meta">
-            Explanation of logistic regression, sigmoid function, and how decision boundaries are formed in 2D.
-          </p>
-          <div class="video-tags">
-            <span class="video-tag">Classification</span>
-            <span class="video-tag">Logistic Regression</span>
-          </div>
-          <div class="video-frame-wrapper">
-            <!-- Replace VIDEO_ID_7 -->
-            <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID_7"
-              title="Classification Basics - Dr. Vikrant Sharma"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </article>
-
-        <!-- Video card 8 -->
-        <article class="video-card">
-          <h3 class="video-title">Research View – ML for Medical Imaging &amp; WSN</h3>
-          <p class="video-meta">
-            High-level overview of how machine learning integrates with medical imaging and
-            wireless sensor networks, based on research work and publications.
-          </p>
-          <div class="video-tags">
-            <span class="video-tag">Research</span>
-            <span class="video-tag">Medical Imaging</span>
-            <span class="video-tag">WSN</span>
-          </div>
-          <div class="video-frame-wrapper">
-            <!-- Replace VIDEO_ID_8 -->
-            <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID_8"
-              title="ML for Medical Imaging & WSN - Dr. Vikrant Sharma"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </article>
-      </div>
-    </section>
+    <!-- DYNAMIC VIDEO SECTIONS -->
+    <div id="video-sections-container"></div>
 
     <!-- PLAYLISTS -->
     <section id="playlists" class="reveal">
@@ -920,18 +743,21 @@
         </p>
 
         <ul class="playlist-list">
+          <!--
           <li>
             <a href="https://www.youtube.com/playlist?list=PLAYLIST_ID_DAA" target="_blank" class="playlist-link">
               <i class="fa-brands fa-youtube"></i>
               Design &amp; Analysis of Algorithms – Full Playlist
             </a>
           </li>
+          -->
           <li>
             <a href="https://www.youtube.com/playlist?list=PLAYLIST_ID_AUTOMATA" target="_blank" class="playlist-link">
               <i class="fa-brands fa-youtube"></i>
               Automata Theory &amp; Formal Languages – Full Playlist
             </a>
           </li>
+          <!--
           <li>
             <a href="https://www.youtube.com/playlist?list=PLAYLIST_ID_ML" target="_blank" class="playlist-link">
               <i class="fa-brands fa-youtube"></i>
@@ -944,6 +770,7 @@
               DevOps &amp; Modern Software Engineering – Overview Series
             </a>
           </li>
+          -->
         </ul>
 
         <p style="font-size:0.78rem; color:var(--muted); margin-top:0.85rem;">
@@ -1000,11 +827,10 @@
     });
 
     // Scroll reveal
-    const revealElements = document.querySelectorAll(".reveal");
-
     function handleReveal() {
+      const reveals = document.querySelectorAll(".reveal");
       const triggerBottom = window.innerHeight * 0.9;
-      revealElements.forEach(el => {
+      reveals.forEach(el => {
         const rect = el.getBoundingClientRect();
         if (rect.top < triggerBottom) {
           el.classList.add("visible");
@@ -1013,7 +839,80 @@
     }
 
     window.addEventListener("scroll", handleReveal);
-    window.addEventListener("load", handleReveal);
+
+    // Dynamic Video Lectures Loader
+    async function loadVideoLectures() {
+      const container = document.getElementById('video-sections-container');
+      if (!container) return;
+
+      try {
+        const res = await fetch('data/video_lectures.json');
+        if (!res.ok) throw new Error('Could not load video lectures data');
+        const data = await res.json();
+
+        data.subjects.forEach(subject => {
+          const section = document.createElement('section');
+          // Start with reveal class (but script needs to see it)
+          section.className = 'reveal';
+          section.id = subject.id;
+
+          let videosHtml = '';
+          (subject.videos || []).forEach(video => {
+            const tagsHtml = (video.tags || []).map(tag => `<span class="video-tag">${tag}</span>`).join('');
+
+            // Try to extract video ID from youtubeUrl if present, otherwise use videoId
+            let embedId = video.videoId;
+            if (video.youtubeUrl) {
+              const urlParams = new URL(video.youtubeUrl).searchParams;
+              const v = urlParams.get('v');
+              if (v) embedId = v;
+            }
+
+            // Create title link if url exists
+            const titleHtml = video.youtubeUrl
+              ? `<a href="${video.youtubeUrl}" target="_blank" style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:0.5rem;" class="video-title-link">${video.title} <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.7em; color:var(--accent);"></i></a>`
+              : video.title;
+
+            videosHtml += `
+              <article class="video-card">
+                <h3 class="video-title">${titleHtml}</h3>
+                <p class="video-meta">${video.description}</p>
+                <div class="video-tags">${tagsHtml}</div>
+                <div class="video-frame-wrapper">
+                  <iframe src="https://www.youtube.com/embed/${embedId}" 
+                    title="${video.title} - Dr. Vikrant Sharma" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </article>
+            `;
+          });
+
+          section.innerHTML = `
+            <div class="section-header">
+              <h2 class="section-title"><span></span> ${subject.title}</h2>
+              <p class="section-subtitle">${subject.description}</p>
+            </div>
+            <div class="grid-videos">${videosHtml}</div>
+          `;
+          container.appendChild(section);
+        });
+
+        // Trigger reveal check for newly added content
+        setTimeout(handleReveal, 100);
+
+      } catch (err) {
+        console.error(err);
+        container.innerHTML = '<p class="data-error">Unable to load video lectures at this time.</p>';
+      }
+    }
+
+    window.addEventListener("load", () => {
+      handleReveal();
+      loadVideoLectures();
+    });
   </script>
 </body>
+
 </html>

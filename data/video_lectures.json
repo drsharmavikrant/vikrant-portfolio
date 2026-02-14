@@ -1,0 +1,51 @@
+{
+    "subjects": [
+        {
+            "id": "toc",
+            "title": "Theory of Computation",
+            "description": "Explore the mathematical foundations of computer science, automata, and formal languages.",
+            "videos": [
+                {
+                    "title": "Myhill Nerode Theorem for minimization of DFA",
+                    "description": "",
+                    "videoId": "VIDEO_ID_1",
+                    "youtubeUrl": "https://www.youtube.com/watch?v=jcxMYnFN2bQ&list=PLm9ccs041qpLycsp6p3U8Kwxt6LNQjdnN&index=1",
+                    "tags": [
+                        "Automata Theory",
+                        "Theory of Computation"
+                    ]
+                },
+                {
+                    "title": "DFA TO ACCEPT BINARY STRING WHOSE DECIMAL EQUIVALENT IS DIVISIBLE BY 5",
+                    "description": "",
+                    "videoId": "VIDEO_ID_2",
+                    "youtubeUrl": "https://www.youtube.com/watch?v=jl0d5yBu9yg&list=PLm9ccs041qpLycsp6p3U8Kwxt6LNQjdnN&index=2",
+                    "tags": [
+                        "Automata Theory",
+                        "Theory of Computation"
+                    ]
+                },
+                {
+                    "title": "DFA TO ACCEPT BINARY STRING WHOSE DECIMAL EQUIVALENT IS DIVISIBLE BY 3",
+                    "description": "",
+                    "videoId": "VIDEO_ID_3",
+                    "youtubeUrl": "https://www.youtube.com/watch?v=46jqbjzMSU4&list=PLm9ccs041qpLycsp6p3U8Kwxt6LNQjdnN&index=3",
+                    "tags": [
+                        "Automata Theory",
+                        "Theory of Computation"
+                    ]
+                },
+                {
+                    "title": "DFA NOT ACCEPTING aab OR aba",
+                    "description": "",
+                    "videoId": "VIDEO_ID_4",
+                    "youtubeUrl": "https://www.youtube.com/watch?v=Cdt04oT_eA4&list=PLm9ccs041qpLycsp6p3U8Kwxt6LNQjdnN&index=4",
+                    "tags": [
+                        "Automata Theory",
+                        "Theory of Computation"
+                    ]
+                }
+            ]
+        }
+    ]
+}
