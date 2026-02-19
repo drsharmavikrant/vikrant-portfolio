@@ -44,6 +44,16 @@
                         "Automata Theory",
                         "Theory of Computation"
                     ]
+                },
+                {
+                    "title": "DFA for Strings Where Number of 1’s ≡ 2 (mod 4)",
+                    "description": "",
+                    "videoId": "VIDEO_ID_5",
+                    "youtubeUrl": "https://youtu.be/Ylbxu2tRDxU",
+                    "tags": [
+                        "Automata Theory",
+                        "Theory of Computation"
+                    ]
                 }
             ]
         }
