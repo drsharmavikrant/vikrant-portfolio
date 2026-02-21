@@ -118,8 +118,41 @@
           "title": "Unit 2: Link Layer and Local Area Networks: Introduction to Link Layer and its services, Where Link Layer is implemented?, Error detection and correction techniques: Parity checks, Checksumming, CRC; Multiple Access protocols: Channel Partitioning, Random Access (Slotted Aloha, Aloha, CSMA), Taking Turns; Link Layer Addressing: MAC addresses, ARP, Ethernet, CSMA/CD, Ethernet Technologies, Link Layer Switches, Switches vs Routers, VLANS",
           "link": "#",
           "images": [
-            "images/CN2/Unit2/page1.jpg",
-            "images/CN2/Unit2/page2.jpg"
+			"images/CN2/Unit2/CN2_UNIT_2_page-0001.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0002.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0003.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0004.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0005.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0006.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0007.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0008.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0009.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0010.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0011.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0012.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0013.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0014.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0015.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0016.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0017.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0018.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0019.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0020.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0021.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0022.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0023.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0024.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0025.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0026.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0027.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0028.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0029.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0030.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0031.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0032.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0033.jpg",
+			"images/CN2/Unit2/CN2_UNIT_2_page-0034.jpg"
+
           ]
         }
       ]
