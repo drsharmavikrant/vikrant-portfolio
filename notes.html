@@ -795,6 +795,10 @@
             Academic <span class="accent">Lecture Notes</span>
           </h1>
 
+          <div id="visitor-counter" style="margin-top: 0.5rem; font-size: 1rem; color: var(--muted); opacity: 0.8;">
+            <i class="fa-solid fa-eye"></i> Visits: <span id="visitor-count">...</span>
+          </div>
+
           <p class="hero-sub">
             Comprehensive study materials, slides, and reference notes for Computer Science & Engineering subjects.
             Select a subject below to access the content.
@@ -857,6 +861,23 @@
   <script>
     // Set current year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // VISITOR COUNTER
+    async function updateVisitorCount() {
+      const counterEl = document.getElementById('visitor-count');
+      if (!counterEl) return;
+      try {
+        const res = await fetch('https://api.counterapi.dev/v1/drsharmavikrant-portfolio/visits/up');
+        const data = await res.json();
+        counterEl.innerText = data.count;
+      } catch (err) {
+        console.error('Visitor count error:', err);
+        counterEl.innerText = 'N/A';
+      }
+    }
+
+    // Initialize visitor count
+    updateVisitorCount();
 
     // Dark Mode Toggle
     const themeToggle = document.getElementById("themeToggle");
