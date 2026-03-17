@@ -54,6 +54,16 @@
                         "Automata Theory",
                         "Theory of Computation"
                     ]
+                },
+                {
+                    "title": "Chomsky Hierarchy",
+                    "description": "",
+                    "videoId": "VIDEO_ID_6",
+                    "youtubeUrl": "https://www.youtube.com/watch?v=2rLZnzlwcCg&t=170s",
+                    "tags": [
+                        "Automata Theory",
+                        "Theory of Computation"
+                    ]
                 }
             ]
         }
