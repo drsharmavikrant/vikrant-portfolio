@@ -843,7 +843,7 @@
       if (!container) return;
 
       try {
-        const res = await fetch('data/video_lectures.json');
+        const res = await fetch('data/video_lectures.json?t=' + new Date().getTime());
         if (!res.ok) throw new Error('Could not load video lectures data');
         const data = await res.json();
 
