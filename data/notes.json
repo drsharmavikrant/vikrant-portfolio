@@ -118,7 +118,56 @@
 			"images/TOC/Unit3/AUTOMATA_NOTES_UNIT_3_page-0031.jpg",
 			"images/TOC/Unit3/AUTOMATA_NOTES_UNIT_3_page-0032.jpg"
 			]
+		},
+		{
+          "title": "Unit 4: Push Down Automata (PDA): Description and definition, Instantaneous Description, Language of PDA, Acceptance by Final state, Acceptance by empty stack, Deterministic PDA, Equivalence of PDA and CFG, CFG to PDA and PDA to CFG, Two stack PDA.",
+          "link": "#",
+          "images": 
+		  [
+			"images/TOC/Unit4/AUTOMATA_NOTES_UNIT_4_page-0001.jpg",
+			"images/TOC/Unit4/AUTOMATA_NOTES_UNIT_4_page-0002.jpg",
+			"images/TOC/Unit4/AUTOMATA_NOTES_UNIT_4_page-0003.jpg",
+			"images/TOC/Unit4/AUTOMATA_NOTES_UNIT_4_page-0004.jpg",
+			"images/TOC/Unit4/AUTOMATA_NOTES_UNIT_4_page-0005.jpg",
+			"images/TOC/Unit4/AUTOMATA_NOTES_UNIT_4_page-0006.jpg",
+			"images/TOC/Unit4/AUTOMATA_NOTES_UNIT_4_page-0007.jpg",
+			"images/TOC/Unit4/AUTOMATA_NOTES_UNIT_4_page-0008.jpg",
+			"images/TOC/Unit4/AUTOMATA_NOTES_UNIT_4_page-0009.jpg",
+			"images/TOC/Unit4/AUTOMATA_NOTES_UNIT_4_page-0010.jpg",
+			"images/TOC/Unit4/AUTOMATA_NOTES_UNIT_4_page-0011.jpg",
+			"images/TOC/Unit4/AUTOMATA_NOTES_UNIT_4_page-0012.jpg",
+			"images/TOC/Unit4/AUTOMATA_NOTES_UNIT_4_page-0013.jpg"
+			]
+		},
+		{
+          "title": "Unit 5: Turing machines (TM): Basic model, definition and representation, Instantaneous Description, Language acceptance by TM, Variants of Turing Machine, TM as Computer of Integer functions, Universal TM, Church's Thesis, Recursive and recursively enumerable languages, Halting problem, Introduction to Undecidability. Undecidable problems about TMs. Post correspondence problem (PCP), Modified PCP, Introduction to recursive function theory.",
+          "link": "#",
+          "images": 
+		  [
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0001.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0002.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0003.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0004.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0005.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0006.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0007.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0008.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0009.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0010.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0011.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0012.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0013.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0014.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0015.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0016.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0017.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0018.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0019.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0020.jpg",
+			"images/TOC/Unit5/AUTOMATA_NOTES_UNIT_5_page-0021.jpg"
+			]
 		}
+		
 		]
     },
 	
