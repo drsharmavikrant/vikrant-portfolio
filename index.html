@@ -1047,16 +1047,12 @@
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
         <a href="#patents">Patents</a>
-        <a href="#conferences">Conferences &amp; Editorial</a>
         <a href="#experience">Experience</a>
         <a href="#students">For Students</a>
         <a href="#contact">Contact</a>
       </div>
 
       <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-          <i class="fa-regular fa-moon"></i>
-        </button>
         <a href="#contact" class="btn btn-primary">
           <i class="fa-regular fa-paper-plane"></i>
           Connect
@@ -1871,23 +1867,7 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    // Dark mode toggle
-    const themeToggle = document.getElementById("themeToggle");
-    const body = document.body;
-    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    if (prefersDark) {
-      body.classList.add("dark-mode");
-      themeToggle.innerHTML = '<i class="fa-regular fa-sun"></i>';
-    }
-
-    themeToggle.addEventListener("click", () => {
-      body.classList.toggle("dark-mode");
-      const isDark = body.classList.contains("dark-mode");
-      themeToggle.innerHTML = isDark
-        ? '<i class="fa-regular fa-sun"></i>'
-        : '<i class="fa-regular fa-moon"></i>';
-    });
 
     // Scroll reveal
     const revealElements = document.querySelectorAll(".reveal");
