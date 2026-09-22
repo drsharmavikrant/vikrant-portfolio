@@ -297,7 +297,7 @@
 
     .notes-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: 1fr;
       gap: 1.5rem;
     }
 
@@ -305,7 +305,7 @@
       border-radius: var(--radius-xl);
       background: var(--card);
       border: 1px solid var(--border-subtle);
-      padding: 1.5rem;
+      padding: 1.75rem 2rem;
       box-shadow: var(--shadow-soft);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       display: flex;
@@ -516,6 +516,21 @@
 
       .hero-title {
         font-size: 1.8rem;
+      }
+
+      .note-card {
+        padding: 1.25rem 1.25rem;
+      }
+
+      .unit-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+      }
+
+      .unit-btn {
+        margin-left: 0;
+        align-self: flex-start;
       }
     }
 
@@ -878,19 +893,108 @@
 
 
 
+    // Utility: CSV Parser
+    function parseCSV(text) {
+      const rows = [];
+      let row = [];
+      let currentField = '';
+      let inQuotes = false;
+
+      for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        const nextChar = text[i + 1];
+
+        if (char === '"') {
+          if (inQuotes && nextChar === '"') {
+            currentField += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (char === ',' && !inQuotes) {
+          row.push(currentField.trim());
+          currentField = '';
+        } else if ((char === '\r' || char === '\n') && !inQuotes) {
+          if (char === '\r' && nextChar === '\n') i++;
+          row.push(currentField.trim());
+          if (row.length > 0 && row.some(cell => cell.length > 0)) {
+            rows.push(row);
+          }
+          row = [];
+          currentField = '';
+        } else {
+          currentField += char;
+        }
+      }
+      if (currentField.length > 0 || row.length > 0) {
+        row.push(currentField.trim());
+        if (row.some(cell => cell.length > 0)) {
+          rows.push(row);
+        }
+      }
+
+      if (rows.length < 2) return [];
+      const headers = rows[0].map(h => h.trim().toLowerCase().replace(/[\s-]+/g, '_'));
+      return rows.slice(1).map(r => {
+        const obj = {};
+        headers.forEach((header, index) => {
+          obj[header] = r[index] !== undefined ? r[index] : '';
+        });
+        return obj;
+      });
+    }
+
+    async function loadCSV(path) {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error('Could not load ' + path);
+      const text = await res.text();
+      return parseCSV(text);
+    }
+
     // Load Data
     async function loadNotes() {
       const container = document.getElementById('notes-grid');
       const errorEl = document.getElementById('notes-error');
 
       try {
-        const response = await fetch('data/notes.json?t=' + new Date().getTime());
-        if (!response.ok) throw new Error('Failed to load data');
-        const data = await response.json();
+        const rows = await loadCSV('data/notes.csv?t=' + new Date().getTime());
 
+        // Group rows by subject
+        const subjectsMap = new Map();
+
+        rows.forEach(r => {
+          const code = r.subject_code || r.code || 'SUB';
+          const title = r.subject_title || r.subject || r.title || '';
+          const desc = r.subject_description || r.description || '';
+
+          if (!subjectsMap.has(code)) {
+            subjectsMap.set(code, {
+              code: code,
+              title: title,
+              description: desc,
+              units: []
+            });
+          }
+
+          const unitTitle = r.unit_title || r.unit || '';
+          if (unitTitle) {
+            const unitLink = r.unit_link || r.link || '#';
+            const images = r.images
+              ? r.images.split(';').map(s => s.trim()).filter(Boolean)
+              : [];
+
+            subjectsMap.get(code).units.push({
+              title: unitTitle,
+              link: unitLink,
+              images: images
+            });
+          }
+        });
+
+        const subjects = Array.from(subjectsMap.values());
         container.innerHTML = ''; // Clear loading text
 
-        data.subjects.forEach(subject => {
+        subjects.forEach(subject => {
           const unitsHtml = subject.units.length > 0
             ? `<ul class="units-list">
                     ${subject.units.map(unit => `
